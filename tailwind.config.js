@@ -4,7 +4,16 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        customCactus: {
+          100: '#E0ECDE',
+          200: '#CDE0C9',
+          300: '#68B2A0',
+          400: '#2C6975'
+        },
+      },
+    },
   },
   plugins: [],
 }
