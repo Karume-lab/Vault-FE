@@ -1,5 +1,5 @@
 import React from 'react';
-import Tab from './SidebarButton'; // Assuming Button component is in a separate file
+import TabButton from './TabButton'; // Assuming Button component is in a separate file
 import { SlCloudUpload } from "react-icons/sl";
 import { CiSettings } from "react-icons/ci";
 import { MdFavoriteBorder, MdOutlineBookmarkBorder } from "react-icons/md";
@@ -16,20 +16,20 @@ function Sidebar() {
   return (
     <div className=" w-60  bg-customCactus-400 text-white flex flex-col rounded-2xl p-2 justify-between ">
       <div className='flex flex-col'>
-        <Tab icon={<LuUploadCloud/>} text="Upload File" />
+        <TabButton icon={<LuUploadCloud/>} text="Upload File" />
         <div className='border-t-2 w-3/4 self-center m-1'></div>
-        <Tab icon={<PiVaultBold />} text="My Vault" />
+        <TabButton icon={<PiVaultBold />} text="My Vault" />
         <div className='border-t-2 w-3/4 self-center m-1'></div>
-        <Tab icon={<FaRegClock />} text="Recents" />
-        <Tab icon={<MdFavoriteBorder />} text="Favorites" />
-        <Tab icon={<MdOutlineBookmarkBorder />} text="Tags" />
+        <TabButton icon={<FaRegClock />} text="Recents" />
+        <TabButton icon={<MdFavoriteBorder />} text="Favorites" />
+        <TabButton icon={<MdOutlineBookmarkBorder />} text="Tags" />
         <div className='border-t-2 w-3/4 self-center m-1'></div>
-        <Tab icon={<GrVirtualStorage />} text="Storage" />
-        <Tab icon={<FaRegTrashAlt />} text="Trash" />
+        <TabButton icon={<GrVirtualStorage />} text="Storage" />
+        <TabButton icon={<FaRegTrashAlt />} text="Trash" />
       </div>
       <div >
-        <Tab icon={<LuSettings />} text="Settings" />
-        <Tab icon={<BiLogOut />} text="Sign Out" />
+        <TabButton icon={<LuSettings />} text="Settings" />
+        <TabButton icon={<BiLogOut />} text="Sign Out" />
       </div>
     </div>
   );

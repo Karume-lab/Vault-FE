@@ -13,8 +13,8 @@ module.exports = {
           400: '#2C6975'
         },
       },
-      keyframes: {
-        
+      animation: {
+        'spin-slow': 'spin 50s linear infinite'
 
       },
     },

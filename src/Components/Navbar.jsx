@@ -1,13 +1,17 @@
 import React from 'react';
 import profile from "./../assets/img/profile.png";
 import logo from "../assets/img/vault-logo.png";
+import key_hole from "../assets/img/key-hole-logo.png"
 
 
 function Navbar() {
   return (
     <div className=" bg-customCactus-400 text-white h-16 w-screen flex items-center justify-between px-4">
       <div className="flex justify-evenly items-center">
-        <img src={logo} alt="Logo" className="h-20 " />
+        <div className='relative'>
+        <img src={logo} alt="Logo" className="h-20 block w-full animate-spin-slow" />
+        <img src={key_hole} alt="Second Image" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 size-16" />
+        </div>
         <span className=" justify-self-start text-2xl font-bold">VAULT</span>
       </div>
       {/* <div className=' w-72 sm-36 md:w-96 lg:w-1/2 flex'>
