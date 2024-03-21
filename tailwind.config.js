@@ -13,6 +13,10 @@ module.exports = {
           400: '#2C6975'
         },
       },
+      keyframes: {
+        
+
+      },
     },
   },
   plugins: [],

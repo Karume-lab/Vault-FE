@@ -7,14 +7,15 @@ function Navbar() {
   return (
     <div className=" bg-customCactus-400 text-white h-16 w-screen flex items-center justify-between px-4">
       <div className="flex justify-evenly items-center">
-        <img src={logo} alt="Logo" className="h-16 " /> {/* Replace "/path/to/logo.png" with the actual path to your logo image */}
+        <img src={logo} alt="Logo" className="h-20 " />
         <span className=" justify-self-start text-2xl font-bold">VAULT</span>
       </div>
-      <div className="w-92">
-        <input type="text" placeholder="Search..." className=" bg-customCactus-100 text-white px-4 py-2  rounded-2xl outline-none focus:bg-customCactus-300 "  />
-      </div>
-      <div className='rounded-full bg-customCactus-200'>
-        <img src={profile} alt="Profile" className="h-10 w-10 rounded-full" />
+      {/* <div className=' w-72 sm-36 md:w-96 lg:w-1/2 flex'>
+        <input type="text" placeholder="Search..." className=" w-full bg-customCactus-100 text-white px-4 py-2 rounded-2xl outline-none focus:bg-customCactus-300 " />
+      </div> */}
+      <div className='flex flex-col items-center justify-center'>
+        <img src={profile} alt="Profile" className="h-10 w-10 rounded-full bg-customCactus-200" />
+        <span className=' text-xs font-bold'>0xD35...92T</span>
       </div>
     </div>
   );
