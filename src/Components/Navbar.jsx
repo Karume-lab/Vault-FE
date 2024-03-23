@@ -2,6 +2,7 @@ import React from 'react';
 import profile from "./../assets/img/profile.png";
 import logo from "../assets/img/vault-logo.png";
 import key_hole from "../assets/img/key-hole-logo.png"
+import { TERipple } from "tw-elements-react";
 
 
 function Navbar() {
@@ -18,7 +19,9 @@ function Navbar() {
         <input type="text" placeholder="Search..." className=" w-full bg-customCactus-100 text-white px-4 py-2 rounded-2xl outline-none focus:bg-customCactus-300 " />
       </div> */}
       <div className='flex flex-col items-center justify-center'>
+        <TERipple>
         <img src={profile} alt="Profile" className="h-10 w-10 rounded-full bg-customCactus-200" />
+        </TERipple>
         <span className=' text-xs font-bold'>0xD35...92T</span>
       </div>
     </div>
