@@ -16,8 +16,10 @@ module.exports = {
       },
       animation: {
         'spin-slow': 'spin 40s linear infinite'
-
       },
+    },
+    screens: {
+      '2lg': {'min': '1536px'},
     },
   },
   plugins: [require("tw-elements-react/dist/plugin.cjs")],
