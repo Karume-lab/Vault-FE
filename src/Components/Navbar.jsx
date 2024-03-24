@@ -11,7 +11,7 @@ function Navbar() {
       <div className="flex justify-evenly items-center">
         <div className='relative'>
         <img src={logo} alt="Logo" className="h-20 block w-full animate-spin-slow" />
-        <img src={key_hole} alt="Second Image" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 size-16" />
+        <img src={key_hole} alt="Second Image" className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 size-16" />
         </div>
         <span className=" justify-self-start text-2xl font-bold">VAULT</span>
       </div>
