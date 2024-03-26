@@ -16,7 +16,7 @@ function Sidebar({toggleFileUploadModal, setToggleFileUploadModal, toggleShareMo
         <TabButton handleClick={() => setToggleFileUploadModal(!toggleFileUploadModal)} icon={<LuUploadCloud/>} text="Upload File" />
         <div className='border-t-2 w-3/4 self-center m-1'></div>
         <TabButton handleClick={() => {}} icon={<PiVaultBold />} text="My Vault" />
-        <TabButton handleClick={() => setToggleShareModal(!toggleShareModal)} icon={<IoShareSocialOutline />} text="Share" />
+        <TabButton handleClick={() => {}} icon={<IoShareSocialOutline />} text="Share" />
         <div className='border-t-2 w-3/4 self-center m-1'></div>
         <TabButton handleClick={() => {}} icon={<FaRegClock />} text="Recents" />
         <TabButton handleClick={() => {}} icon={<MdFavoriteBorder />} text="Favorites" />

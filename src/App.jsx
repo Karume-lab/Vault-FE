@@ -3,12 +3,11 @@ import Sidebar from './Components/Sidebar'; // Importing Sidebar component
 import Navbar from './Components/Navbar';
 import Body from "./Components/Body";
 import UploadModal from './Components/UploadModal';
-import ShareModal from './Components/ShareModal';
 
 function App() {
   const [toggleFileUploadModal, setToggleFileUploadModal] = useState(false);
   const [toggleShareModal, setToggleShareModal] = useState(false);
-
+   
   return (
     <div>
       <div className="flex flex-col content-between w-screen h-screen bg-customCactus-200">
@@ -20,7 +19,6 @@ function App() {
           <div className='flex-1 relative'>
             <Body />
             <UploadModal toggleFileUploadModal={toggleFileUploadModal} setToggleFileUploadModal={setToggleFileUploadModal} />
-            <ShareModal toggleShareModal={toggleShareModal} setToggleShareModal={setToggleShareModal} />
 
           </div>
         </div>
