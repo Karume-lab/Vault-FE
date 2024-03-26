@@ -35,7 +35,7 @@ const App = () => {
         const signer = provider.getSigner();
         try {
           address = await signer.getAddress();
-          
+
         } catch (error) {
           console.error("Connect MetaMask wallet");
         }
@@ -59,15 +59,19 @@ const App = () => {
     <div>
       <div className="flex flex-col content-between w-screen h-screen bg-customCactus-200">
         <Navbar account={account} />
-        <div className=' flex flex-1 flex-row p-2 gap-2 '>
-          <div className=' w-60 '>
-            <Sidebar toggleFileUploadModal={toggleFileUploadModal} setToggleFileUploadModal={setToggleFileUploadModal} active={active} setActive={setActive} toggleShareModal={toggleShareModal} setToggleShareModal={setToggleShareModal} />
+        {account ?
+          <div className=' flex flex-1 flex-row p-2 gap-2 '>
+            <div className=' w-60 '>
+              <Sidebar toggleFileUploadModal={toggleFileUploadModal} setToggleFileUploadModal={setToggleFileUploadModal} active={active} setActive={setActive} toggleShareModal={toggleShareModal} setToggleShareModal={setToggleShareModal} />
+            </div>
+            <div className='flex-1 relative'>
+              <MainContent active={active} />
+              <UploadModal toggleFileUploadModal={toggleFileUploadModal} setToggleFileUploadModal={setToggleFileUploadModal} account={account} contract={contract} />
+            </div>
           </div>
-          <div className='flex-1 relative'>
-            <MainContent active={active} />
-            <UploadModal toggleFileUploadModal={toggleFileUploadModal} setToggleFileUploadModal={setToggleFileUploadModal} account={account} contract={contract} />
-          </div>
-        </div>
+          :
+          <div>Connect MetaMask Wallet</div>
+        }
       </div>
     </div>
   );
