@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import File from './File';
 import { useSnackbar } from "notistack";
 
 const MyVault = ({ files, setFiles, contract, account }) => {
     const { enqueueSnackbar } = useSnackbar();
-    const [otherAddress, setOtherAddress] = useState("");
     const getdata = async () => {
         let dataArray;
         try {
-            dataArray = await contract.getFiles(otherAddress || account);
+            dataArray = await contract.getFiles(account);
         } catch (error) {
             enqueueSnackbar("You don't have access", { variant: 'error' });
             console.error(error);
@@ -36,21 +35,6 @@ const MyVault = ({ files, setFiles, contract, account }) => {
 
     return (
         <div className="rounded-2xl bg-customCactus-100  h-full overflow-hidden flex flex-col p-2 text-customCactus-400">
-            <div className='flex items-center justify-center gap-4'>
-                <input
-                    type="text"
-                    placeholder="Enter Address"
-                    value={otherAddress}
-                    onChange={(e) => setOtherAddress(e.target.value)}
-                    className="address border rounded p-2 lg:w-96"
-                />
-                <button
-                    className="button bg-customCactus-400 hover:bg-customCactus-300 text-white font-bold py-2 px-4 rounded"
-                    onClick={getdata}
-                >
-                    Open Vault
-                </button>
-            </div>
             <div className="pt-1 pl-2 rounded-r-2xl-2xl rounded-t-2xl ">
                 <p className="ml-2 font-bold">My Vault</p>
             </div>
