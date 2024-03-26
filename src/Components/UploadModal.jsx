@@ -26,6 +26,7 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal }) => {
                             {<LuUploadCloud />}
                             <span className="">Upload file</span>
                         </button>
+                        <input type="text" name="" id="" />
                     </TERipple>
                     <span>File name</span>
                     <input type="text" placeholder="File name" />
