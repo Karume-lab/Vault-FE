@@ -8,9 +8,9 @@ import Storage from "./Storage";
 import Tags from "./Tags";
 import Trash from "./Trash";
 
-const MainContent = ({ active }) => {
+const MainContent = ({ active, account, contract, files, setFiles }) => {
     const components = {
-        "My Vault": <MyVault />,
+        "My Vault": <MyVault files={files} setFiles={setFiles} account={account} contract={contract} />,
         "Share": <Share />,
         "Recents": <Recents />,
         "Favorites": <Favorites />,
