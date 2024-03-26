@@ -3,16 +3,12 @@ import React from "react";
 const File = (props) => {
     return (
         <div className="w-full h-16 shadow-xl bg-customCactus-100 rounded-lg hover:bg-customCactus-200 border
-                        border-customCactus-400 flex flex-row justify-around ">
-            {/* <div className="bg-purple-800 "> */}
-            <p>{props.fileName}</p>
-            {/* </div> */}
-            {/* <div className="flex flex-row bg-red-400 w-40"> */}
+                        border-customCactus-400 flex flex-row justify-around items-center ">
+            <p className="">{props.fileName}</p>
             <p>{props.tag}</p>
             <p>{props.date}</p>
             <p>{props.size}</p>
-            </div>
-        // </div>
+        </div>
 
     );
 }
