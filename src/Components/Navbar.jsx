@@ -5,13 +5,13 @@ import key_hole from "../assets/img/key-hole-logo.png"
 import { TERipple } from "tw-elements-react";
 
 
-const Navbar = () => {
+const Navbar = ({ account }) => {
   return (
     <div className=" bg-customCactus-400 text-white h-16 w-screen flex items-center justify-between px-4">
       <div className="flex justify-evenly items-center">
         <div className='relative'>
-        <img src={logo} alt="Logo" className="h-20 block w-full animate-spin-slow" />
-        <img src={key_hole} alt="Second Image" className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 size-16" />
+          <img src={logo} alt="" className="h-20 block w-full animate-spin-slow" />
+          <img src={key_hole} alt="" className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 size-16" />
         </div>
         <span className=" justify-self-start text-2xl font-bold">VAULT</span>
       </div>
@@ -20,9 +20,12 @@ const Navbar = () => {
       </div> */}
       <div className='flex flex-col items-center justify-center'>
         <TERipple>
-        <img src={profile} alt="Profile" className="h-10 w-10 rounded-full bg-customCactus-200" />
+          <img src={profile} alt="" className="h-10 w-10 rounded-full bg-customCactus-200" />
         </TERipple>
-        <span className=' text-xs font-bold'>0xD35...92T</span>
+        <span className='text-xs font-bold'>
+          {account ? `${account.slice(0, 5)}...${account.slice(-5)}`.toUpperCase() : "Not connected"}
+        </span>
+
       </div>
     </div>
   );
