@@ -76,34 +76,23 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
                         <button onClick={() => setToggleFileUploadModal(!toggleFileUploadModal)} >X</button>
                     </div>
                     <div className="p-2 flex flex-col">
-                        <TERipple>
-                            <button className="bg-customCactus-400 w-28 shadow-xl shadow-customCactus-400 border-2 border-customCactus-300 rounded-xl p-1  flex flex-row items-center gap-2">
-                                {<LuUploadCloud />}
-                                <span className="">Upload file</span>
-                            </button>
-                        </TERipple>
                         <input
-                            disabled={!account}
+                            // disabled={!account}
                             type="file"
                             id="file-upload"
                             name="data"
                             onChange={retrieveFile}
-                            className="hidden"
                         />
-                        <span>
-                            File: {fileName}
-                        </span>
                         <div>
                             <label htmlFor="isFavourite">Favourite:</label>
                             <input id="isFavourite" value={isFavourite} onChange={(e) => setIsFavourite(e.target.value)} type="checkbox" />
                         </div>
-                        <textarea name="fileDescription" id="fileDescription" cols="30" rows="10" placeholder="File Description" value={fileDescription} onChange={(e) => setFileDescription(e.target.value)}></textarea>
+                        <textarea name="fileDescription" id="fileDescription" className="w-64 h-16" placeholder="File Description" value={fileDescription} onChange={(e) => setFileDescription(e.target.value)}></textarea>
                         <TagsDropdown contract={contract} />
 
                         <button
                             type="submit"
-                            className={`${account ? '' : 'cursor-not-allowed opacity-50'
-                                }`}
+                            className={` ${account ? '' : 'cursor-not-allowed opacity-50'}`}
                             disabled={!account}
                         >
                             Upload File
