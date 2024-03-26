@@ -23,6 +23,7 @@ const App = () => {
     const contractABI = abi.abi;
 
     const loadProvider = async () => {
+      let address;
       if (provider) {
         window.ethereum.on("chainChanged", () => {
           window.location.reload();
@@ -32,7 +33,12 @@ const App = () => {
           window.location.reload();
         });
         const signer = provider.getSigner();
-        const address = await signer.getAddress();
+        try {
+          address = await signer.getAddress();
+          
+        } catch (error) {
+          console.error("Connect MetaMask wallet");
+        }
         setAccount(address);
         const contract = new ethers.Contract(
           contractAddress,
