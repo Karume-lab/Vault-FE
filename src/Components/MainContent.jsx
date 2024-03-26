@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import Favorites from "./Favorites";
 import MyVault from "./MyVault";
 import Recents from "./Recents";
