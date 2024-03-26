@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const TagsDropdown = ({ contract }) => {
+const TagsDropdown = ({ contract, tag, setTag }) => {
     const [tags, setTags] = useState([]);
 
     useEffect(() => {
@@ -16,11 +16,11 @@ const TagsDropdown = ({ contract }) => {
     }, [contract]);
 
     return (
-        <div style={{ margin: 50 }}>
-            <span>Get Tags</span>
-            <select id='tags'>
+        <div className='mt-8'>
+            <div>Tags</div>
+            <select id='tags' className='p-1 rounded-lg' value={tag} onChange={(e) => setTag(+e.target.value)}>
                 {tags.map((tag, index) => (
-                    <option key={index} value={tag}>{tag}</option>
+                    <option key={index} value={index}>{tag}</option>
                 ))}
             </select>
         </div>

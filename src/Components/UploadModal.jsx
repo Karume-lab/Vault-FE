@@ -5,12 +5,13 @@ import axios from "axios";
 
 
 
-const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract, account }) => {
+const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract, account, provider }) => {
     const [file, setFile] = useState(null);
     const [fileName, setFileName] = useState("No file selected");
-    const { enqueueSnackbar } = useSnackbar();
+    const [tag, setTag] = useState(0);
     const [fileDescription, setFileDescription] = useState("")
     const [isFavourite, setIsFavourite] = useState(false)
+    const { enqueueSnackbar } = useSnackbar();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -32,7 +33,7 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
                     }
                 );
 
-                contract.uploadFile(account, fileName, fileDescription, fileExtension, isFavourite, 1, resFile.data.IpfsHash);
+                contract.uploadFile(account, fileName, fileDescription, fileExtension, isFavourite, tag, resFile.data.IpfsHash);
                 enqueueSnackbar('Successfully Uploaded file', { variant: 'success' });
                 setFileName("No file selected");
                 setFile(null);
@@ -85,7 +86,7 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
                             <input id="isFavourite" value={isFavourite} onChange={(e) => setIsFavourite(e.target.value)} type="checkbox" />
                         </div>
                         <textarea name="fileDescription" id="fileDescription" className="w-64 h-16" placeholder="File Description" value={fileDescription} onChange={(e) => setFileDescription(e.target.value)}></textarea>
-                        <TagsDropdown contract={contract} />
+                        <TagsDropdown tag={tag} setTag={setTag} contract={contract} />
 
                         <button
                             type="submit"

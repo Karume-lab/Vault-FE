@@ -69,7 +69,7 @@ const App = () => {
       }
     };
     provider && loadProvider();
-  }, [enqueueSnackbar]);
+  }, []);
 
   return (
     <div>
@@ -82,7 +82,7 @@ const App = () => {
             </div>
             <div className='flex-1 relative'>
               <MainContent active={active} />
-              <UploadModal toggleFileUploadModal={toggleFileUploadModal} setToggleFileUploadModal={setToggleFileUploadModal} account={account} contract={contract} />
+              <UploadModal toggleFileUploadModal={toggleFileUploadModal} setToggleFileUploadModal={setToggleFileUploadModal} account={account} contract={contract} provider={provider} />
             </div>
           </div>
           :
