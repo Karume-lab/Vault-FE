@@ -19,23 +19,25 @@ const Navbar = ({ account }) => {
       </div>
       <div
         className='flex flex-col items-center justify-center relative'
-        onMouseEnter={() => setIsPopoverOpen(true)}
-        onMouseLeave={() => setIsPopoverOpen(false)}
       >
+        <div
+        onMouseEnter={() => setIsPopoverOpen(true)}
+        onMouseLeave={() => setIsPopoverOpen(false)}>
         <TERipple>
           { account ? <MetaMaskAvatar address={account} size={32} /> : <BsPersonCircle size={24} /> }
         </TERipple>
+        </div>
 
-        <span className='text-xs font-bold'>
+        <span className='text-xs font-bold bg-gray-600 bg-opacity-50 rounded-xl p-1  h-6 '>
           {account ? `${account.slice(0, 5)}...${account.slice(-5)}`.toUpperCase() : "Not connected"}
         </span>
 
         {isPopoverOpen && (
-          <div className="absolute z-10 top-full left-1/2 transform -translate-x-1/2 text-sm text-white transition-opacity duration-300 bg-black opacity-90 border border-customCactus-300 rounded-lg shadow-lg w-60 ">
+          <div className="absolute z-10 -bottom-11 -left-20 transform -translate-x-1/2 text-sm text-white transition-opacity duration-300 bg-[#111111]  border border-customCactus-300 rounded-lg shadow-lg w-84 p-2">
             <div className="flex p-3">
               <div>
-                <p className="hover:underline mb-1 text-base font-semibold leading-none text-customCactus-200">
-                  <span className='text-xs font-bold'>
+                <p className=" mb-1 text-base font-semibold leading-none text-customCactus-200">
+                  <span className='text-xs font-light'>
                     {account ? `${account}`.toUpperCase() : "Not connected"}
                   </span>
                 </p>
