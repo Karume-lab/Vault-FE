@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSnackbar } from "notistack";
 import TagsDropdown from "./TagsDropdown";
 import axios from "axios";
-
+import { TERipple } from "tw-elements-react";
 
 
 const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract, account, provider }) => {
@@ -65,7 +65,7 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
 
     return (
         <div id="uploadFileModalContainer" onClick={handleClose} className="bg-customCactus-400 bg-opacity-0 backdrop-blur-sm h-full w-full flex justify-center items-center absolute top-0">
-            <div className="min-w-1/2 h-72 w-2/3 bg-customCactus-300 text-white rounded-lg p-2 flex flex-col">
+            <div className="min-w-1/2 h-80 w-2/3 bg-customCactus-300 text-white rounded-lg p-2 flex flex-col">
                 <form onSubmit={handleSubmit}>
                     <div className="flex flex-row border-b-2 justify-between p-2">
                         <div className="flex flex-row align-middle ">
@@ -73,28 +73,37 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
                         </div>
                         <button onClick={() => setToggleFileUploadModal(!toggleFileUploadModal)} >X</button>
                     </div>
-                    <div className="p-2 flex flex-col">
+                    <div className="p-2 flex flex-col gap-2">
                         <input
+                            className="block w-full text-sm text-white border border-customCactus-100 rounded-lg cursor-pointer bg-customCactus-400  focus:outline-none "
                             disabled={!account}
                             type="file"
                             id="file-upload"
                             name="data"
                             onChange={retrieveFile}
                         />
-                        <div>
-                            <label htmlFor="isFavourite">Favourite:</label>
-                            <input id="isFavourite" value={isFavourite} onChange={(e) => setIsFavourite(e.target.value)} type="checkbox" />
+                        <div className="">
+                            <input id="isFavourite" value={isFavourite} onChange={(e) => setIsFavourite(e.target.value)} type="checkbox" className="w-4 h-4 text-customCactus-400 bg-customCactus-100 border-customCactus-200 rounded"/>
+                            <label htmlFor="isFavourite" className="m-2">Favourite</label>
                         </div>
-                        <textarea name="fileDescription" id="fileDescription" className="w-64 h-16" placeholder="File Description" value={fileDescription} onChange={(e) => setFileDescription(e.target.value)}></textarea>
-                        <TagsDropdown tag={tag} setTag={setTag} contract={contract} />
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-white ">Description</label>
+                            <textarea name="fileDescription" id="fileDescription" className="p-2 resize-none w-full text-sm text-white bg-customCactus-400 rounded-lg border border-customCactus-100 focus:ring-white
+                                                                                         focus:border-customCactus-200" placeholder="File Description" value={fileDescription} onChange={(e) => setFileDescription(e.target.value)}></textarea>
+                        </div>
 
-                        <button
-                            type="submit"
-                            className={` ${account ? '' : 'cursor-not-allowed opacity-50'}`}
-                            disabled={!account}
-                        >
-                            Upload File
-                        </button>
+                        <TagsDropdown tag={tag} setTag={setTag} contract={contract}  />
+
+                        <div className=" flex justify-center">
+                            <TERipple>
+                            <button
+                                type="submit"
+                                className="border-2 rounded-lg p-1 bg-customCactus-400 hover:bg-customCactus-400"
+                            >
+                                Upload File
+                            </button>
+                            </TERipple>
+                        </div>
                     </div>
                 </form>
             </div>
