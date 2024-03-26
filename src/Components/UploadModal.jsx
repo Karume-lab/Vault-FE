@@ -20,7 +20,6 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
                 const fileExtension = fileName.split(".").pop();
                 formData.append("file", file);
 
-                // IPFS 是分布式的，so cannot delete once uploaded
                 const resFile = await axios.post(
                     "https://api.pinata.cloud/pinning/pinFileToIPFS",
                     formData,
