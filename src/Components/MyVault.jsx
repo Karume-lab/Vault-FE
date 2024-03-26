@@ -37,14 +37,14 @@ const MyVault = ({ files, setFiles, contract, account }) => {
     });
 
     return (
-        <div className="rounded-2xl bg-customCactus-100  h-full flex flex-col p-2 text-customCactus-400">
+        <div className="rounded-2xl bg-customCactus-100  h-full overflow-hidden flex flex-col p-2 text-customCactus-400">
             <div className='flex items-center justify-center gap-4'>
                 <input
                     type="text"
                     placeholder="Enter Address"
                     value={otherAddress}
                     onChange={(e) => setOtherAddress(e.target.value)}
-                    className="address border rounded p-2 w-96"
+                    className="address border rounded p-2 lg:w-96"
                 />
                 <button
                     className="button bg-customCactus-400 hover:bg-customCactus-300 text-white font-bold py-2 px-4 rounded"
@@ -63,25 +63,16 @@ const MyVault = ({ files, setFiles, contract, account }) => {
                 <p>Date </p>
                 <p>Size</p>
             </div>
-            <div className="flex justify-center items-center h-full">
-                <div className="flex justify-center items-center h-full">
-                    <div className="flex flex-col gap-2">
-                        {/* {setFiles(undefined)} */}
-                        {files ? (
-                            files.map(({ owner, dateUploaded, dateModified, dateAccessed, isFavourite, isArchived, cid, name, description, extension, tag, size }, index) => (
-                                <File key={index} fileName={name} tag={tag} date={timestamp2DateTime(dateUploaded)} size={size} />
-                            ))
-                        ) : (
-                            <div className="text-customCactus-400 text-5xl font-bold">NO FILES UPLOADED YET ...</div>
-                        )}
-                    </div>
-                </div>
-
+            <div className="flex flex-col gap-2 overflow-auto h-80 p-3">
+                {files ? (
+                    [...files, ...files, ...files].map(({ owner, dateUploaded, dateModified, dateAccessed, isFavourite, isArchived, cid, name, description, extension, tag, size }, index) => (
+                        <File key={index} fileName={name} tag={tag} date={timestamp2DateTime(dateUploaded)} size={size} />
+                    ))
+                ) : (
+                    <div className="text-customCactus-400 text-5xl font-bold text-center mt-32">NO FILES UPLOADED YET ...</div>
+                )}
             </div>
-
-
         </div>
-
     );
 }
 
