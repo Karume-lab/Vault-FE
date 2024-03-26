@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import profile from "./../assets/img/profile.png";
 import logo from "../assets/img/vault-logo.png";
 import key_hole from "../assets/img/key-hole-logo.png";
 import { TERipple } from "tw-elements-react";
+import { MetaMaskAvatar } from 'react-metamask-avatar';
+import { BsPersonCircle } from "react-icons/bs";
 
 const Navbar = ({ account }) => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
@@ -22,7 +23,7 @@ const Navbar = ({ account }) => {
         onMouseLeave={() => setIsPopoverOpen(false)}
       >
         <TERipple>
-          <img src={profile} alt="" className="h-10 w-10 rounded-full bg-customCactus-200" />
+          { account ? <MetaMaskAvatar address={account} size={32} /> : <BsPersonCircle size={24} /> }
         </TERipple>
 
         <span className='text-xs font-bold'>
