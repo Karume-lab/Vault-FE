@@ -9,6 +9,7 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
     const [file, setFile] = useState(null);
     const [fileName, setFileName] = useState("No file selected");
     const [tag, setTag] = useState(0);
+    const [fileSize, setFileSize] = useState(0);
     const [fileDescription, setFileDescription] = useState("")
     const [isFavourite, setIsFavourite] = useState(false)
     const { enqueueSnackbar } = useSnackbar();
@@ -33,7 +34,7 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
                     }
                 );
 
-                contract.uploadFile(account, fileName, fileDescription, fileExtension, isFavourite, tag, resFile.data.IpfsHash);
+                contract.uploadFile(account, fileName, fileDescription, formatFileSize(fileSize), fileExtension, isFavourite, tag, resFile.data.IpfsHash);
                 enqueueSnackbar('Successfully Uploaded file', { variant: 'success' });
                 setFileName("No file selected");
                 setFile(null);
@@ -55,6 +56,7 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
             setFile(e.target.files[0]);
         };
         setFileName(e.target.files[0].name);
+        setFileSize(e.target.files[0].size);
         e.preventDefault();
     };
 
@@ -63,9 +65,21 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
     }
     if (!toggleFileUploadModal) return null;
 
+    const formatFileSize = (bytes) => {
+        if (bytes < 1024) {
+            return bytes + " bytes";
+        } else if (bytes < 1024 * 1024) {
+            return (bytes / 1024).toFixed(2) + " KB";
+        } else if (bytes < 1024 * 1024 * 1024) {
+            return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+        } else {
+            return (bytes / (1024 * 1024 * 1024)).toFixed(2) + " GB";
+        }
+    };
+
     return (
         <div id="uploadFileModalContainer" onClick={handleClose} className="bg-customCactus-400 bg-opacity-0 backdrop-blur-sm h-full w-full flex justify-center items-center absolute top-0">
-            <div className="min-w-1/2 h-80 w-2/3 bg-customCactus-300 text-white rounded-lg p-2 flex flex-col">
+            <div className="min-w-1/2 h-88 w-2/3 bg-customCactus-300 text-white rounded-lg p-2 flex flex-col">
                 <form onSubmit={handleSubmit}>
                     <div className="flex flex-row border-b-2 justify-between p-2">
                         <div className="flex flex-row align-middle ">
@@ -75,7 +89,7 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
                     </div>
                     <div className="p-2 flex flex-col gap-2">
                         <input
-                            className="block w-full text-sm text-white border border-customCactus-100 rounded-lg cursor-pointer bg-customCactus-400  focus:outline-none "
+                            className="block w-full p-2 text-sm text-white border border-customCactus-100 rounded-lg cursor-pointer bg-customCactus-400  focus:outline-none "
                             disabled={!account}
                             type="file"
                             id="file-upload"
@@ -83,24 +97,23 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
                             onChange={retrieveFile}
                         />
                         <div className="">
-                            <input id="isFavourite" value={isFavourite} onChange={(e) => setIsFavourite(e.target.value)} type="checkbox" className="w-4 h-4 text-customCactus-400 bg-customCactus-100 border-customCactus-200 rounded"/>
+                            <input id="isFavourite" value={isFavourite} onChange={(e) => setIsFavourite(e.target.value)} type="checkbox" className="w-4 h-4 text-customCactus-400 bg-customCactus-100 border-customCactus-200 rounded" />
                             <label htmlFor="isFavourite" className="m-2">Favourite</label>
                         </div>
                         <div>
-                            <label for="message" class="block text-sm font-medium text-white ">Description</label>
-                            <textarea name="fileDescription" id="fileDescription" className="p-2 resize-none w-full text-sm text-white bg-customCactus-400 rounded-lg border border-customCactus-100 focus:ring-white
-                                                                                         focus:border-customCactus-200" placeholder="File Description" value={fileDescription} onChange={(e) => setFileDescription(e.target.value)}></textarea>
+                            <label htmlFor="message" className="block text-sm font-medium text-white ">Description</label>
+                            <textarea name="fileDescription" id="fileDescription" className="p-2 resize-none w-full text-sm text-white bg-customCactus-400 rounded-lg border border-customCactus-100 focus:ring-white focus:border-customCactus-200" placeholder="File Description" value={fileDescription} onChange={(e) => setFileDescription(e.target.value)}></textarea>
                         </div>
 
-                        <TagsDropdown tag={tag} setTag={setTag} contract={contract}  />
+                        <TagsDropdown tag={tag} setTag={setTag} contract={contract} />
 
                         <div className=" flex justify-center">
                             <TERipple>
-                            <button
-                                className="border-2  shadow-xl rounded-lg p-1 bg-customCactus-400 hover:bg-customCactus-300"
-                            >
-                                Upload File
-                            </button>
+                                <button
+                                    className="border-2  shadow-xl rounded-lg p-1 bg-customCactus-400 hover:bg-customCactus-300"
+                                >
+                                    Upload File
+                                </button>
                             </TERipple>
                         </div>
                     </div>
