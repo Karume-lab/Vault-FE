@@ -8,7 +8,7 @@ import axios from "axios";
 const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract, account, provider }) => {
     const [file, setFile] = useState(null);
     const [fileName, setFileName] = useState("No file selected");
-    const [tag, setTag] = useState(1);
+    const [tag, setTag] = useState(0);
     const [fileDescription, setFileDescription] = useState("")
     const [isFavourite, setIsFavourite] = useState(false)
     const { enqueueSnackbar } = useSnackbar();
