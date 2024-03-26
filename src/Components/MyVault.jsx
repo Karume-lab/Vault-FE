@@ -63,11 +63,22 @@ const MyVault = ({ files, setFiles, contract, account }) => {
                 <p>Date </p>
                 <p>Size</p>
             </div>
-            <div className="gap-2 flex flex-col ">
-                {files?.map(({ owner, dateUploaded, dateModified, dateAccessed, isFavourite, isArchived, cid, name, description, extension, tag, size }, index) => (
-                    <File key={index} fileName={name} tag={tag} date={timestamp2DateTime(dateUploaded)} size={size} />
-                ))}
+            <div className="flex justify-center items-center h-full">
+                <div className="flex justify-center items-center h-full">
+                    <div className="flex flex-col gap-2">
+                        {/* {setFiles(undefined)} */}
+                        {files ? (
+                            files.map(({ owner, dateUploaded, dateModified, dateAccessed, isFavourite, isArchived, cid, name, description, extension, tag, size }, index) => (
+                                <File key={index} fileName={name} tag={tag} date={timestamp2DateTime(dateUploaded)} size={size} />
+                            ))
+                        ) : (
+                            <div className="text-customCactus-400 text-5xl font-bold">NO FILES UPLOADED YET ...</div>
+                        )}
+                    </div>
+                </div>
+
             </div>
+
 
         </div>
 
