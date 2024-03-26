@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Favorites = () => {
+const SignOut = () => {
     return (
         <div>
-            Favorites
+            Sign out
         </div>
     )
 }
 
-export default Favorites
+export default SignOut

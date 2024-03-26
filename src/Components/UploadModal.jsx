@@ -4,14 +4,14 @@ import { TERipple } from "tw-elements-react";
 
 
 
-function UploadModal({toggleFileUploadModal, setToggleFileUploadModal}){
+const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal }) => {
     const handleClose = (e) => {
-        if (e.target.id ===  "uploadFileModalContainer") setToggleFileUploadModal(!toggleFileUploadModal);
+        if (e.target.id === "uploadFileModalContainer") setToggleFileUploadModal(!toggleFileUploadModal);
     }
 
     if (!toggleFileUploadModal) return null;
 
-    return(
+    return (
         <div id="uploadFileModalContainer" onClick={handleClose} className="bg-customCactus-400 bg-opacity-0 backdrop-blur-sm h-full w-full flex justify-center items-center absolute top-0">
             <div className="min-w-1/2 h-72 w-2/3 bg-customCactus-300 text-white rounded-lg p-2 flex flex-col">
                 <div className="flex flex-row border-b-2 justify-between p-2">
@@ -21,16 +21,16 @@ function UploadModal({toggleFileUploadModal, setToggleFileUploadModal}){
                     <button onClick={() => setToggleFileUploadModal(!toggleFileUploadModal)} >X</button>
                 </div>
                 <div className="p-2 flex flex-col">
-                <TERipple>
-                    <button className="bg-customCactus-400 w-28 shadow-xl shadow-customCactus-400 border-2 border-customCactus-300 rounded-xl p-1  flex flex-row items-center gap-2">
-                        {<LuUploadCloud/>} 
-                        <span className="">Upload file</span>
-                    </button>
-                </TERipple>
+                    <TERipple>
+                        <button className="bg-customCactus-400 w-28 shadow-xl shadow-customCactus-400 border-2 border-customCactus-300 rounded-xl p-1  flex flex-row items-center gap-2">
+                            {<LuUploadCloud />}
+                            <span className="">Upload file</span>
+                        </button>
+                    </TERipple>
                     <span>File name</span>
-                    <input type="text" placeholder="File name"/>
+                    <input type="text" placeholder="File name" />
                     <span>Choose category</span>
-                    
+
                 </div>
             </div>
         </div>

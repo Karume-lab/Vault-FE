@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Favorites = () => {
+const Share = () => {
     return (
         <div>
-            Favorites
+            Share Your Vault
         </div>
     )
 }
 
-export default Favorites
+export default Share

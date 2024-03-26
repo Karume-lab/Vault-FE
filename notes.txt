@@ -1,0 +1,5 @@
+connect backend and frontend
+set active sidebar button
+preview files
+main content files
+
