@@ -8,27 +8,51 @@ import { FaRegClock } from "react-icons/fa6";
 import { LuSettings, LuUploadCloud } from "react-icons/lu";
 import { BiLogOut } from "react-icons/bi";
 import { IoShareSocialOutline } from "react-icons/io5";
+import { useSnackbar } from 'notistack';
 
-const Sidebar = ({ toggleFileUploadModal, setToggleFileUploadModal, setActive }) => {
+const Sidebar = ({ toggleFileUploadModal, setToggleFileUploadModal, setActive, contract, account, setFiles }) => {
+  const { enqueueSnackbar } = useSnackbar();
+  const getdata = async () => {
+    let dataArray;
+    try {
+      dataArray = await contract.getFiles(account);
+    } catch (error) {
+      enqueueSnackbar("You don't have access", { variant: 'error' });
+      console.error(error);
+    }
+    const isEmpty = dataArray.length === 0;
+
+    if (!isEmpty) {
+      enqueueSnackbar('Fetched files successfully', { variant: 'success' });
+      return dataArray;
+    } else {
+      enqueueSnackbar('No file(s) to display', { variant: 'info' });
+    }
+  };
+  const handleMyVaultClick = async () => {
+    setActive("My Vault");
+    setFiles(await getdata());
+  }
+
   return (
     <div className=" w-60 h-full bg-customCactus-400 text-white flex flex-col rounded-2xl p-2 justify-between ">
-          <div className='flex flex-col'>
-            <TabButton handleClick={() => setToggleFileUploadModal(!toggleFileUploadModal)} icon={<LuUploadCloud />} text="Upload File" />
-            <div className='border-t-2 w-3/4 self-center m-1'></div>
-            <TabButton handleClick={() => setActive("My Vault")} icon={<PiVaultBold />} text="My Vault" />
-            <TabButton handleClick={() => setActive("Share")} icon={<IoShareSocialOutline />} text="Share" />
-            <div className='border-t-2 w-3/4 self-center m-1'></div>
-            <TabButton handleClick={() => setActive("Recents")} icon={<FaRegClock />} text="Recents" />
-            <TabButton handleClick={() => setActive("Favorites")} icon={<MdFavoriteBorder />} text="Favorites" />
-            <TabButton handleClick={() => setActive("Tags")} icon={<MdOutlineBookmarkBorder />} text="Tags" />
-            <div className='border-t-2 w-3/4 self-center m-1'></div>
-            <TabButton handleClick={() => setActive("Storage")} icon={<GrVirtualStorage />} text="Storage" />
-            <TabButton handleClick={() => setActive("Trash")} icon={<FaRegTrashAlt />} text="Trash" />
-          </div>
-          <div className='flex flex-col'>
-            <TabButton handleClick={() => setActive("Settings")} icon={<LuSettings />} text="Settings" />
-            <TabButton handleClick={() => setActive("Sign Out")} icon={<BiLogOut />} text="Sign Out" />
-          </div>
+      <div className='flex flex-col'>
+        <TabButton handleClick={() => setToggleFileUploadModal(!toggleFileUploadModal)} icon={<LuUploadCloud />} text="Upload File" />
+        <div className='border-t-2 w-3/4 self-center m-1'></div>
+        <TabButton handleClick={handleMyVaultClick} icon={<PiVaultBold />} text="My Vault" />
+        <TabButton handleClick={() => setActive("Share")} icon={<IoShareSocialOutline />} text="Share" />
+        <div className='border-t-2 w-3/4 self-center m-1'></div>
+        <TabButton handleClick={() => setActive("Recents")} icon={<FaRegClock />} text="Recents" />
+        <TabButton handleClick={() => setActive("Favorites")} icon={<MdFavoriteBorder />} text="Favorites" />
+        <TabButton handleClick={() => setActive("Tags")} icon={<MdOutlineBookmarkBorder />} text="Tags" />
+        <div className='border-t-2 w-3/4 self-center m-1'></div>
+        <TabButton handleClick={() => setActive("Storage")} icon={<GrVirtualStorage />} text="Storage" />
+        <TabButton handleClick={() => setActive("Trash")} icon={<FaRegTrashAlt />} text="Trash" />
+      </div>
+      <div className='flex flex-col'>
+        <TabButton handleClick={() => setActive("Settings")} icon={<LuSettings />} text="Settings" />
+        <TabButton handleClick={() => setActive("Sign Out")} icon={<BiLogOut />} text="Sign Out" />
+      </div>
     </div>
   );
 }
