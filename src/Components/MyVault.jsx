@@ -13,9 +13,7 @@ const MyVault = ({ files, setFiles, contract, account }) => {
             enqueueSnackbar("You don't have access", { variant: 'error' });
             console.error(error);
         }
-        const isEmpty = dataArray.length === 0;
-
-        if (!isEmpty) {
+        if (!dataArray) {
             setFiles(dataArray);
             enqueueSnackbar('Fetched files successfully', { variant: 'success' });
         } else {
@@ -65,7 +63,7 @@ const MyVault = ({ files, setFiles, contract, account }) => {
             </div>
             <div className="flex flex-col gap-2 overflow-auto h-80 p-3">
                 {files ? (
-                    [...files, ...files, ...files].map(({ owner, dateUploaded, dateModified, dateAccessed, isFavourite, isArchived, cid, name, description, extension, tag, size }, index) => (
+                    files.map(({ owner, dateUploaded, dateModified, dateAccessed, isFavourite, isArchived, cid, name, description, extension, tag, size }, index) => (
                         <File key={index} fileName={name} tag={tag} date={timestamp2DateTime(dateUploaded)} size={size} />
                     ))
                 ) : (

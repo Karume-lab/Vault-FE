@@ -9,6 +9,7 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
     const [file, setFile] = useState(null);
     const [fileName, setFileName] = useState("No file selected");
     const [tag, setTag] = useState(0);
+    const [fileSize, setFileSize] = useState(0);
     const [fileDescription, setFileDescription] = useState("")
     const [isFavourite, setIsFavourite] = useState(false)
     const { enqueueSnackbar } = useSnackbar();
@@ -33,7 +34,7 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
                     }
                 );
 
-                contract.uploadFile(account, fileName, fileDescription, fileExtension, isFavourite, tag, resFile.data.IpfsHash);
+                contract.uploadFile(account, fileName, fileDescription, formatFileSize(fileSize), fileExtension, isFavourite, tag, resFile.data.IpfsHash);
                 enqueueSnackbar('Successfully Uploaded file', { variant: 'success' });
                 setFileName("No file selected");
                 setFile(null);
@@ -55,6 +56,7 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
             setFile(e.target.files[0]);
         };
         setFileName(e.target.files[0].name);
+        setFileSize(e.target.files[0].size);
         e.preventDefault();
     };
 
@@ -62,6 +64,18 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
         if (e.target.id === "uploadFileModalContainer") setToggleFileUploadModal(!toggleFileUploadModal);
     }
     if (!toggleFileUploadModal) return null;
+
+    const formatFileSize = (bytes) => {
+        if (bytes < 1024) {
+            return bytes + " bytes";
+        } else if (bytes < 1024 * 1024) {
+            return (bytes / 1024).toFixed(2) + " KB";
+        } else if (bytes < 1024 * 1024 * 1024) {
+            return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+        } else {
+            return (bytes / (1024 * 1024 * 1024)).toFixed(2) + " GB";
+        }
+    };
 
     return (
         <div id="uploadFileModalContainer" onClick={handleClose} className="bg-customCactus-400 bg-opacity-0 backdrop-blur-sm h-full w-full flex justify-center items-center absolute top-0">
