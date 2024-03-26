@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Sidebar from './Components/Sidebar'; // Importing Sidebar component
+import Sidebar from './Components/Sidebar'; 
 import Navbar from './Components/Navbar';
 import UploadModal from './Components/UploadModal';
 import MainContent from './Components/MainContent';
@@ -15,6 +15,22 @@ const App = () => {
   const [toggleShareModal, setToggleShareModal] = useState(false);
   const [active, setActive] = useState("My Vault");
 
+
+  const connectWallet = async () => {
+    if (typeof window.ethereum !== 'undefined') {
+      try {
+        await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = provider.getSigner();
+        const address = await signer.getAddress();
+        console.log('Connected to MetaMask with address:', address);
+      } catch (error) {
+        console.error('Error connecting to MetaMask:', error);
+      }
+    } else {
+      console.error('MetaMask is not installed');
+    }
+  };
 
 
   useEffect(() => {
@@ -37,7 +53,7 @@ const App = () => {
           address = await signer.getAddress();
 
         } catch (error) {
-          console.error("Connect MetaMask wallet");
+          console.error("Connect MetaMask wallet", error);
         }
         setAccount(address);
         const contract = new ethers.Contract(
@@ -70,7 +86,7 @@ const App = () => {
             </div>
           </div>
           :
-          <div>Connect MetaMask Wallet</div>
+          <button onClick={connectWallet} className="bg-customCactus-400 hover:bg-customCactus-300 text-white font-bold py-2 px-4 rounded w-fit m-auto">Connect MetaMask Wallet</button>
         }
       </div>
     </div>
