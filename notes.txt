@@ -1,5 +1,8 @@
 connect backend and frontend
+close modal when you click outside the modal
 set active sidebar button
 preview files
 main content files
 
+
+3 types of dates

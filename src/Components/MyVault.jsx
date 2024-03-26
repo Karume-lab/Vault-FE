@@ -1,7 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react'
 import File from './File';
+import { useSnackbar } from "notistack";
 
-const MyVault = () => {
+const MyVault = ({ contract, account }) => {
+    const { enqueueSnackbar } = useSnackbar();
+    const [files, setFiles] = useState([]);
+    const [otherAddress, setOtherAddress] = useState("");
+
+
+
+    const getdata = async () => {
+        let dataArray;
+        try {
+            dataArray = await contract.getFiles(otherAddress ? otherAddress : account);
+        } catch (error) {
+            enqueueSnackbar("You don't have access", { variant: 'error' });
+            console.error(error);
+        }
+        const isEmpty = dataArray.length === 0;
+
+        if (!isEmpty) {
+            setFiles(dataArray);
+            enqueueSnackbar('Fetched files successfully', { variant: 'success' });
+        } else {
+            enqueueSnackbar('No file(s) to display', { variant: 'info' });
+        }
+    };
+    const timestamp2DateTime = (timestamp) => {
+        let date;
+        if (timestamp.toString() === "0") {
+            date = null;
+        } else {
+            date = new Date(timestamp * 1000).toUTCString();
+        }
+        return date;
+    };
+
     return (
         <div className="rounded-2xl bg-customCactus-100  h-full flex flex-col p-2 text-customCactus-400">
             <div className="pt-1 pl-2 rounded-r-2xl-2xl rounded-t-2xl ">
@@ -14,8 +48,10 @@ const MyVault = () => {
                 <p>Date </p>
                 <p>Size</p>
             </div>
-            <div className="gap-2 flex flex-col items-center ">
-                <File fileName="Certificate" tag="Education" date="12/3/1988" size="123KB" />
+            <div className="gap-2 flex flex-col ">
+                {files?.map(({ owner, dateUploaded, dateModified, dateAccessed, isFavourite, isArchived, cid, name, description, extension, tag, size }) => (
+                    <File fileName={name} tag={tag} date={timestamp2DateTime(dateUploaded)} size={size} />
+                ))}
             </div>
 
         </div>
