@@ -1,8 +1,8 @@
-import React from "react";
-import File from "./File";
+import React from 'react'
+import File from './File';
 
-function MyVault(){
-    return(
+const MyVault = () => {
+    return (
         <div className="rounded-2xl bg-customCactus-100  h-full flex flex-col p-2">
             <div className="pt-1 pl-2 rounded-r-2xl-2xl rounded-t-2xl ">
                 <p className="ml-2 font-bold">My Vault</p>
@@ -23,4 +23,4 @@ function MyVault(){
     );
 }
 
-export default MyVault;
+export default MyVault
