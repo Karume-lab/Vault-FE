@@ -16,9 +16,9 @@ const TagsDropdown = ({ contract, tag, setTag }) => {
     }, [contract]);
 
     return (
-        <div className='mt-8'>
-            <div>Tags</div>
-            <select id='tags' className='p-1 rounded-lg' value={tag} onChange={(e) => setTag(+e.target.value)}>
+        <div className='mt-2'>
+            <div className='text-sm'>Tags</div>
+            <select id='tags' className='p-1 rounded-lg bg-customCactus-400' value={tag} onChange={(e) => setTag(+e.target.value)}>
                 {tags.map((tag, index) => (
                     <option key={index} value={index}>{tag}</option>
                 ))}
