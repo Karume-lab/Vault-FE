@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Sidebar from './Components/Sidebar'; 
+import Sidebar from './Components/Sidebar';
 import Navbar from './Components/Navbar';
 import UploadModal from './Components/UploadModal';
 import MainContent from './Components/MainContent';
@@ -13,6 +13,7 @@ const App = () => {
   const [provider, setProvider] = useState(null);
   const [toggleFileUploadModal, setToggleFileUploadModal] = useState(false);
   const [toggleShareModal, setToggleShareModal] = useState(false);
+  const [files, setFiles] = useState([]);
   const [active, setActive] = useState("My Vault");
 
 
@@ -78,10 +79,10 @@ const App = () => {
         {account ?
           <div className=' flex flex-1 flex-row p-2 gap-2 '>
             <div className=' w-60 '>
-              <Sidebar toggleFileUploadModal={toggleFileUploadModal} setToggleFileUploadModal={setToggleFileUploadModal} active={active} setActive={setActive} toggleShareModal={toggleShareModal} setToggleShareModal={setToggleShareModal} />
+              <Sidebar files={files} setFiles={setFiles} account={account} contract={contract} toggleFileUploadModal={toggleFileUploadModal} setToggleFileUploadModal={setToggleFileUploadModal} active={active} setActive={setActive} toggleShareModal={toggleShareModal} setToggleShareModal={setToggleShareModal} />
             </div>
             <div className='flex-1 relative'>
-              <MainContent active={active} />
+              <MainContent files={files} setFiles={setFiles} active={active} contract={contract} account={account} />
               <UploadModal toggleFileUploadModal={toggleFileUploadModal} setToggleFileUploadModal={setToggleFileUploadModal} account={account} contract={contract} provider={provider} />
             </div>
           </div>

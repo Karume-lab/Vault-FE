@@ -1,18 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import File from './File';
 import { useSnackbar } from "notistack";
 
-const MyVault = ({ contract, account }) => {
+const MyVault = ({ files, setFiles, contract, account }) => {
     const { enqueueSnackbar } = useSnackbar();
-    const [files, setFiles] = useState([]);
     const [otherAddress, setOtherAddress] = useState("");
-
-
-
     const getdata = async () => {
         let dataArray;
         try {
-            dataArray = await contract.getFiles(otherAddress ? otherAddress : account);
+            dataArray = await contract.getFiles(otherAddress || account);
         } catch (error) {
             enqueueSnackbar("You don't have access", { variant: 'error' });
             console.error(error);
@@ -36,6 +32,10 @@ const MyVault = ({ contract, account }) => {
         return date;
     };
 
+    useEffect(() => {
+        getdata();
+    });
+
     return (
         <div className="rounded-2xl bg-customCactus-100  h-full flex flex-col p-2 text-customCactus-400">
             <div className='flex items-center justify-center gap-4'>
@@ -44,13 +44,13 @@ const MyVault = ({ contract, account }) => {
                     placeholder="Enter Address"
                     value={otherAddress}
                     onChange={(e) => setOtherAddress(e.target.value)}
-                    className="address border rounded p-2"
+                    className="address border rounded p-2 w-96"
                 />
                 <button
                     className="button bg-customCactus-400 hover:bg-customCactus-300 text-white font-bold py-2 px-4 rounded"
                     onClick={getdata}
                 >
-                    Get Data
+                    Open Vault
                 </button>
             </div>
             <div className="pt-1 pl-2 rounded-r-2xl-2xl rounded-t-2xl ">
@@ -64,8 +64,8 @@ const MyVault = ({ contract, account }) => {
                 <p>Size</p>
             </div>
             <div className="gap-2 flex flex-col ">
-                {files?.map(({ owner, dateUploaded, dateModified, dateAccessed, isFavourite, isArchived, cid, name, description, extension, tag, size }) => (
-                    <File fileName={name} tag={tag} date={timestamp2DateTime(dateUploaded)} size={size} />
+                {files?.map(({ owner, dateUploaded, dateModified, dateAccessed, isFavourite, isArchived, cid, name, description, extension, tag, size }, index) => (
+                    <File key={index} fileName={name} tag={tag} date={timestamp2DateTime(dateUploaded)} size={size} />
                 ))}
             </div>
 
