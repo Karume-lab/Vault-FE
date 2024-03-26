@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { LuUploadCloud } from "react-icons/lu";
 import { useSnackbar } from "notistack";
-import { TERipple } from "tw-elements-react";
 import TagsDropdown from "./TagsDropdown";
 import axios from "axios";
 
@@ -22,15 +20,14 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
                 const fileExtension = fileName.split(".").pop();
                 formData.append("file", file);
 
-                // IPFS 是分布式的，so cannot delete once uploaded
                 const resFile = await axios.post(
                     "https://api.pinata.cloud/pinning/pinFileToIPFS",
                     formData,
                     {
                         headers: {
                             "Content-Type": "multipart/form-data",
-                            "pinata_api_key": import.meta.env.VITE_PINATA_API_KEY,
-                            "pinata_secret_api_key": import.meta.env.VITE_PINATA_SECRET_KEY,
+                            "pinata_api_key": process.env.VITE_PINATA_API_KEY,
+                            "pinata_secret_api_key": process.env.VITE_PINATA_SECRET_KEY,
                         },
                     }
                 );
@@ -68,7 +65,7 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
     return (
         <div id="uploadFileModalContainer" onClick={handleClose} className="bg-customCactus-400 bg-opacity-0 backdrop-blur-sm h-full w-full flex justify-center items-center absolute top-0">
             <div className="min-w-1/2 h-72 w-2/3 bg-customCactus-300 text-white rounded-lg p-2 flex flex-col">
-                <form action="" method="post">
+                <form onSubmit={handleSubmit}>
                     <div className="flex flex-row border-b-2 justify-between p-2">
                         <div className="flex flex-row align-middle ">
                             <p className=" text-lg font-semibold">Upload File</p>
@@ -76,34 +73,23 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
                         <button onClick={() => setToggleFileUploadModal(!toggleFileUploadModal)} >X</button>
                     </div>
                     <div className="p-2 flex flex-col">
-                        <TERipple>
-                            <button className="bg-customCactus-400 w-28 shadow-xl shadow-customCactus-400 border-2 border-customCactus-300 rounded-xl p-1  flex flex-row items-center gap-2">
-                                {<LuUploadCloud />}
-                                <span className="">Upload file</span>
-                            </button>
-                        </TERipple>
                         <input
-                            disabled={!account}
+                            // disabled={!account}
                             type="file"
                             id="file-upload"
                             name="data"
                             onChange={retrieveFile}
-                            className="hidden"
                         />
-                        <span>
-                            File: {fileName}
-                        </span>
                         <div>
                             <label htmlFor="isFavourite">Favourite:</label>
                             <input id="isFavourite" value={isFavourite} onChange={(e) => setIsFavourite(e.target.value)} type="checkbox" />
                         </div>
-                        <textarea name="fileDescription" id="fileDescription" cols="30" rows="10" placeholder="File Description" value={fileDescription} onChange={(e) => setFileDescription(e.target.value)}></textarea>
+                        <textarea name="fileDescription" id="fileDescription" className="w-64 h-16" placeholder="File Description" value={fileDescription} onChange={(e) => setFileDescription(e.target.value)}></textarea>
                         <TagsDropdown contract={contract} />
 
                         <button
                             type="submit"
-                            className={`${account ? '' : 'cursor-not-allowed opacity-50'
-                                }`}
+                            className={` ${account ? '' : 'cursor-not-allowed opacity-50'}`}
                             disabled={!account}
                         >
                             Upload File
