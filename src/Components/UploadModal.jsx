@@ -74,7 +74,7 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
                     </div>
                     <div className="p-2 flex flex-col">
                         <input
-                            // disabled={!account}
+                            disabled={!account}
                             type="file"
                             id="file-upload"
                             name="data"
