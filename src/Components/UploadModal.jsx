@@ -65,7 +65,7 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
 
     return (
         <div id="uploadFileModalContainer" onClick={handleClose} className="bg-customCactus-400 bg-opacity-0 backdrop-blur-sm h-full w-full flex justify-center items-center absolute top-0">
-            <div className="min-w-1/2 h-80 w-2/3 bg-customCactus-300 text-white rounded-lg p-2 flex flex-col">
+            <div className="min-w-1/2 h-88 w-2/3 bg-customCactus-300 text-white rounded-lg p-2 flex flex-col">
                 <form onSubmit={handleSubmit}>
                     <div className="flex flex-row border-b-2 justify-between p-2">
                         <div className="flex flex-row align-middle ">
