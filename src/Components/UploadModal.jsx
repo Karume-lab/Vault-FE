@@ -26,8 +26,8 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
                     {
                         headers: {
                             "Content-Type": "multipart/form-data",
-                            "pinata_api_key": process.env.VITE_PINATA_API_KEY,
-                            "pinata_secret_api_key": process.env.VITE_PINATA_SECRET_KEY,
+                            "pinata_api_key": process.env.REACT_APP_PINATA_API_KEY,
+                            "pinata_secret_api_key": process.env.REACT_APP_PINATA_SECRET_KEY,
                         },
                     }
                 );
