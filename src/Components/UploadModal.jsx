@@ -98,7 +98,7 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
                             <TERipple>
                             <button
                                 type="submit"
-                                className="border-2 rounded-lg p-1 bg-customCactus-400 hover:bg-customCactus-400"
+                                className="border-2  shadow-xl rounded-lg p-1 bg-customCactus-400 hover:bg-customCactus-400"
                             >
                                 Upload File
                             </button>
