@@ -5,7 +5,7 @@ import key_hole from "../assets/img/key-hole-logo.png"
 import { TERipple } from "tw-elements-react";
 
 
-function Navbar() {
+const Navbar = () => {
   return (
     <div className=" bg-customCactus-400 text-white h-16 w-screen flex items-center justify-between px-4">
       <div className="flex justify-evenly items-center">
