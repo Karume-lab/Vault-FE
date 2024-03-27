@@ -38,6 +38,7 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
                 enqueueSnackbar('Successfully Uploaded file', { variant: 'success' });
                 setFileName("No file selected");
                 setFile(null);
+                setToggleFileUploadModal(false);
             } catch (error) {
                 enqueueSnackbar('Unable to upload file to Pinata', { variant: 'error' });
                 console.error(error);
