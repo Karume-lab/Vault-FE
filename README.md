@@ -12,10 +12,9 @@ This repository contains the frontend implementation of the dapp. The backend re
 
 ## Demo
 
-<video controls="" width="800" height="500" muted="" loop="" autoplay="">
-    <source src="demo.mp4" type="video/mp4">
-</video>
+[Demo for Vault MVP](./demo.mp4)
+
 
 Feel free to explore the code and contribute to our project! Your support helps us build a more secure and decentralized future for data storage.
 
-Kindly find a more detailed version of the README [here](https://github.com/Karume-lab/Vault-BE/blob/main/README.md)
+Kindly find a more detailed README [here]()
