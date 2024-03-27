@@ -5,7 +5,7 @@ import UploadModal from './Components/UploadModal';
 import MainContent from './Components/MainContent';
 import { ethers } from "ethers"
 import abi from "./abi/Vault.json"
-import { enqueueSnackbar } from 'notistack';
+import { useSnackbar } from 'notistack';
 
 const App = () => {
   const [account, setAccount] = useState("");
@@ -14,7 +14,8 @@ const App = () => {
   const [toggleFileUploadModal, setToggleFileUploadModal] = useState(false);
   const [toggleShareModal, setToggleShareModal] = useState(false);
   const [files, setFiles] = useState([]);
-  const [active, setActive] = useState("My Vault");
+  const { enqueueSnackbar } = useSnackbar();
+  const [active, setActive] = useState("");
 
 
   const connectWallet = async () => {
@@ -32,7 +33,6 @@ const App = () => {
       console.error('MetaMask is not installed');
     }
   };
-
 
   useEffect(() => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -70,11 +70,11 @@ const App = () => {
       }
     };
     provider && loadProvider();
-  }, []);
+  }, [enqueueSnackbar]);
 
   return (
     <div>
-      <div className="flex flex-col content-between w-screen h-screen bg-customCactus-200">
+      <div className="flex flex-col w-screen h-screen bg-customCactus-200">
         <Navbar account={account} />
         {account ?
           <div className=' flex flex-1 flex-row p-2 gap-2 '>
@@ -82,8 +82,8 @@ const App = () => {
               <Sidebar files={files} setFiles={setFiles} account={account} contract={contract} toggleFileUploadModal={toggleFileUploadModal} setToggleFileUploadModal={setToggleFileUploadModal} active={active} setActive={setActive} toggleShareModal={toggleShareModal} setToggleShareModal={setToggleShareModal} />
             </div>
             <div className='flex-1 relative'>
-              <MainContent files={files} setFiles={setFiles} active={active} contract={contract} account={account} />
               <UploadModal toggleFileUploadModal={toggleFileUploadModal} setToggleFileUploadModal={setToggleFileUploadModal} account={account} contract={contract} provider={provider} />
+              <MainContent files={files} setFiles={setFiles} active={active} contract={contract} account={account} />
             </div>
           </div>
           :
