@@ -34,7 +34,7 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
                     }
                 );
 
-                contract.uploadFile(account, fileName, fileDescription, formatFileSize(fileSize), fileExtension, isFavourite, tag, resFile.data.IpfsHash);
+                await contract.uploadFile(account, fileName, fileDescription, formatFileSize(fileSize), fileExtension, isFavourite, tag, resFile.data.IpfsHash);
                 enqueueSnackbar('Successfully Uploaded file', { variant: 'success' });
                 setFileName("No file selected");
                 setFile(null);
