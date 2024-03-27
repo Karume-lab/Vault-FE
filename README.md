@@ -10,14 +10,11 @@ This repository contains the frontend implementation of the dapp. The backend re
 - **Tailwind CSS**: Utilized for styling the components, providing a sleek and modern design.
 - **Ethers JS**: Enables interaction with the MetaMask provider directly from the user's browser, facilitating seamless integration with the Ethereum blockchain.
 
-
 ## Demo
-<video width="640" height="360" controls>
-  <source src="./demo.mp4" type="video/mp4">
+
+<video controls="" width="800" height="500" muted="" loop="" autoplay="">
+    <source src="./demo.mp4" type="video/mp4">
 </video>
-
-[![Demo Vault](./demo.mp4)](./demo.mp4)
-
 
 Feel free to explore the code and contribute to our project! Your support helps us build a more secure and decentralized future for data storage.
 
