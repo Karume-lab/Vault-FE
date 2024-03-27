@@ -13,7 +13,7 @@ This repository contains the frontend implementation of the dapp. The backend re
 ## Demo
 
 <video controls="" width="800" height="500" muted="" loop="" autoplay="">
-    <source src="./demo.mp4" type="video/mp4">
+    <source src="demo.mp4" type="video/mp4">
 </video>
 
 Feel free to explore the code and contribute to our project! Your support helps us build a more secure and decentralized future for data storage.
