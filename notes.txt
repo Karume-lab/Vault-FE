@@ -1,7 +1,7 @@
-# connect backend and frontend
 close modal when you click outside the modal
-set active sidebar button
 preview files
+# connect backend and frontend
+# set active sidebar button
 # main content files
 
 
