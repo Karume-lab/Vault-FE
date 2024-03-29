@@ -11,12 +11,12 @@ import SharedWithMe from "./SharedWithMe";
 const MainContent = ({ active, account, contract, files, setFiles }) => {
     const components = {
         1: <MyVault files={files} setFiles={setFiles} account={account} contract={contract} />,
-        2: <SharedWithMe />,
-        3: <Recents />,
-        4: <Favorites />,
+        2: <SharedWithMe files={files} setFiles={setFiles} account={account} contract={contract} />,
+        3: <Recents files={files} setFiles={setFiles} account={account} contract={contract} />,
+        4: <Favorites files={files} setFiles={setFiles} account={account} contract={contract} />,
         5: <Tags />,
         6: <Storage />,
-        7: <Trash />,
+        7: <Trash files={files} setFiles={setFiles} account={account} contract={contract} />,
         8: <Settings />,
         9: <SignOut />
     };
