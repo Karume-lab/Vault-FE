@@ -9,6 +9,7 @@ import { LuSettings, LuUploadCloud } from "react-icons/lu";
 import { BiLogOut } from "react-icons/bi";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { useSnackbar } from 'notistack';
+import { moreFiles } from '../dummyFiles';
 
 const Sidebar = ({ toggleFileUploadModal, setToggleFileUploadModal, active, setActive, contract, account, setFiles }) => {
   const { enqueueSnackbar } = useSnackbar();
@@ -31,7 +32,7 @@ const Sidebar = ({ toggleFileUploadModal, setToggleFileUploadModal, active, setA
   };
   const handleMyVaultClick = async () => {
     setActive(1);
-    setFiles(await getdata());
+    setFiles([moreFiles]);//await getdata());
   }
 
   const handleShareClick = async () => {

@@ -6,6 +6,7 @@ import MainContent from './Components/MainContent';
 import { ethers } from "ethers"
 import abi from "./abi/Vault.json"
 import { useSnackbar } from 'notistack';
+import { moreFiles } from './dummyFiles';
 
 const App = () => {
   const [account, setAccount] = useState("");
@@ -13,7 +14,7 @@ const App = () => {
   const [provider, setProvider] = useState(null);
   const [toggleFileUploadModal, setToggleFileUploadModal] = useState(false);
   const [toggleShareModal, setToggleShareModal] = useState(false);
-  const [files, setFiles] = useState([]);
+  const [files, setFiles] = useState(moreFiles);
   const { enqueueSnackbar } = useSnackbar();
   const [active, setActive] = useState(1);
 
