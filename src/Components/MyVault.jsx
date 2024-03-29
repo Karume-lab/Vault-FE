@@ -16,7 +16,7 @@ const MyVault = ({ files, setFiles, contract, account }) => {
     const { enqueueSnackbar } = useSnackbar();
 
     const columns = [
-        { id: "name", header: "File Name", accessorKey: "name" },
+        { id: "name", header: "File", accessorKey: "name" },
         {
             id: "dateUploaded",
             header: "Date Uploaded",
