@@ -1,4 +1,6 @@
 import React from "react";
+import { SlOptions } from "react-icons/sl";
+
 
 const File = (props) => {
     return (
@@ -8,8 +10,10 @@ const File = (props) => {
             <p>{props.tag}</p>
             <p>{props.date}</p>
             <p>{props.size}</p>
+            <div className="size-8 hover:bg-customCactus-100 rounded-full flex justify-center items-center">
+            <SlOptions/>
+            </div> 
         </div>
-
     );
 }
 

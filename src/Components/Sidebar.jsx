@@ -30,32 +30,61 @@ const Sidebar = ({ toggleFileUploadModal, setToggleFileUploadModal, active, setA
     }
   };
   const handleMyVaultClick = async () => {
-    setActive("My Vault");
+    setActive(1);
     setFiles(await getdata());
   }
 
   const handleShareClick = async () => {
-    setActive("Share");
+    setActive(2);
   }
+
+  const handleRecentsClick = async () => {
+    setActive(3);
+  }
+
+  const handleFavoritesClick = async () => {
+    setActive(4);
+  }
+
+  const handleTagsClick = async () => {
+    setActive(5);
+  }
+
+  const handleStorageClick = async () => {
+    setActive(6);
+  }
+
+  const handleTrashClick = async () => {
+    setActive(7);
+  }
+
+  const handleSettingsClick = async () => {
+    setActive(8);
+  }
+
+  const handleSignOutClick = async () => {
+    setActive(8);
+  }
+
 
   return (
     <div className=" w-60 h-full bg-customCactus-400 text-white flex flex-col rounded-2xl p-2 justify-between ">
       <div className='flex flex-col'>
         <TabButton handleClick={() => setToggleFileUploadModal(!toggleFileUploadModal)} icon={<LuUploadCloud />} text="Upload File" active={active === null} />
         <div className='border-t-2 w-3/4 self-center m-1'></div>
-        <TabButton handleClick={handleMyVaultClick} icon={<PiVaultBold />} text="My Vault" active={active === "My Vault"} />
-        <TabButton handleClick={() => handleShareClick} icon={<IoShareSocialOutline />} text="Share" active={active === "Share"} />
+        <TabButton handleClick={handleMyVaultClick} icon={<PiVaultBold />} text="My Vault" active={active === 1} />
+        <TabButton handleClick={handleShareClick} icon={<IoShareSocialOutline />} text="Shared with me" active={active === 2} />
         <div className='border-t-2 w-3/4 self-center m-1'></div>
-        <TabButton handleClick={() => setActive("Recents")} icon={<FaRegClock />} text="Recents" active={active === "Recents"} />
-        <TabButton handleClick={() => setActive("Favorites")} icon={<MdFavoriteBorder />} text="Favorites" active={active === "Favorites"} />
-        <TabButton handleClick={() => setActive("Tags")} icon={<MdOutlineBookmarkBorder />} text="Tags" active={active === "Tags"} />
+        <TabButton handleClick={handleRecentsClick} icon={<FaRegClock />} text="Recents" active={active === 3} />
+        <TabButton handleClick={handleFavoritesClick} icon={<MdFavoriteBorder />} text="Favorites" active={active === 4} />
+        <TabButton handleClick={handleTagsClick} icon={<MdOutlineBookmarkBorder />} text="Tags" active={active === 5} />
         <div className='border-t-2 w-3/4 self-center m-1'></div>
-        <TabButton handleClick={() => setActive("Storage")} icon={<GrVirtualStorage />} text="Storage" active={active === "Storage"} />
-        <TabButton handleClick={() => setActive("Trash")} icon={<FaRegTrashAlt />} text="Trash" active={active === "Trash"} />
+        <TabButton handleClick={handleStorageClick} icon={<GrVirtualStorage />} text="Storage" active={active === 6} />
+        <TabButton handleClick={handleTrashClick} icon={<FaRegTrashAlt />} text="Trash" active={active === 7} />
       </div>
       <div className='flex flex-col'>
-        <TabButton handleClick={() => setActive("Settings")} icon={<LuSettings />} text="Settings" active={active === "Settings"} />
-        <TabButton handleClick={() => setActive("Sign Out")} icon={<BiLogOut />} text="Sign Out" active={active === "Sign Out"} />
+        <TabButton handleClick={handleSettingsClick} icon={<LuSettings />} text="Settings" active={active === 8} />
+        <TabButton handleClick={handleSignOutClick} icon={<BiLogOut />} text="Sign Out" active={false} />
       </div>
     </div>
   );

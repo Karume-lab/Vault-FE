@@ -14,7 +14,7 @@ const App = () => {
   const [toggleFileUploadModal, setToggleFileUploadModal] = useState(false);
   const [toggleShareModal, setToggleShareModal] = useState(false);
   const [files, setFiles] = useState([]);
-  const [active, setActive] = useState("My Vault");
+  const [active, setActive] = useState(1);
 
 
   const connectWallet = async () => {
