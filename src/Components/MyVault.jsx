@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import File from './File';
 import { useSnackbar } from "notistack";
 
 const MyVault = ({ files, setFiles, contract, account }) => {
     const { enqueueSnackbar } = useSnackbar();
-    const [otherAddress, setOtherAddress] = useState("");
     const getdata = async () => {
         let dataArray;
         try {
-            dataArray = await contract.getFiles(otherAddress || account);
+            dataArray = await contract.getFiles(account);
         } catch (error) {
             enqueueSnackbar("You don't have access", { variant: 'error' });
             console.error(error);
