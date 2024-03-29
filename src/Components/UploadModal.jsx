@@ -34,11 +34,10 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
                     }
                 );
 
-                await contract.uploadFile(account, fileName, fileDescription, formatFileSize(fileSize), fileExtension, isFavourite, tag, resFile.data.IpfsHash);
+                contract.uploadFile(account, fileName, fileDescription, formatFileSize(fileSize), fileExtension, isFavourite, tag, resFile.data.IpfsHash);
                 enqueueSnackbar('Successfully Uploaded file', { variant: 'success' });
                 setFileName("No file selected");
                 setFile(null);
-                setToggleFileUploadModal(false);
             } catch (error) {
                 enqueueSnackbar('Unable to upload file to Pinata', { variant: 'error' });
                 console.error(error);

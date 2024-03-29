@@ -15,7 +15,7 @@ const App = () => {
   const [toggleShareModal, setToggleShareModal] = useState(false);
   const [files, setFiles] = useState([]);
   const { enqueueSnackbar } = useSnackbar();
-  const [active, setActive] = useState("");
+  const [active, setActive] = useState(1);
 
 
   const connectWallet = async () => {

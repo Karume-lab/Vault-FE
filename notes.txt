@@ -1,8 +1,93 @@
-connect backend and frontend
 close modal when you click outside the modal
-set active sidebar button
 preview files
-main content files
+# connect backend and frontend
+# set active sidebar button
+# main content files
 
 
-3 types of dates
+# 3 types of dates
+
+
+
+
+
+
+
+
+
+sidebar and page: 
+    shared with me(myvault):
+            owner
+
+
+base file pages:
+    icon-filename   tag     size    actions
+
+
+myvault(bfp):
+                    t    dateuploaded    datemodified   s
+
+
+recents(bfp):
+                    t    dateaccessed    datemodified   s
+
+favourites(myvault)
+
+
+
+
+add actions:
+    share
+    delete
+    edit
+    like
+    download
+
+
+share modal:
+    address
+
+storage:
+    sidebar:
+        storage bar
+    content:
+        more detailed bar
+        listing files by storage
+
+
+
+landing page:
+    description of the app
+
+    features:
+        secure
+        you own your data
+        user friendliness
+    
+    subscriptions:
+        copper
+        bronze
+        silver
+        gold
+        platinum
+
+        - storeage size
+        - daily file uploads
+        - shares per day
+
+settings
+account details:
+    the profile picture
+    full address copy
+    account name
+
+
+theme:
+    cactus
+
+
+
+show active sidebar
+fix overflow
+table fix
+
