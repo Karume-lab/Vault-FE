@@ -1,13 +1,7 @@
 import React from 'react';
-import TabButton from './TabButton'; // Assuming Button component is in a separate file
-import { MdFavoriteBorder, MdOutlineBookmarkBorder } from "react-icons/md";
-import { GrVirtualStorage } from "react-icons/gr";
+import TabButton from './TabButton';
 import { PiVaultBold } from "react-icons/pi";
-import { FaRegTrashAlt } from "react-icons/fa";
-import { FaRegClock } from "react-icons/fa6";
-import { LuSettings, LuUploadCloud } from "react-icons/lu";
-import { BiLogOut } from "react-icons/bi";
-import { IoShareSocialOutline } from "react-icons/io5";
+import { LuUploadCloud } from "react-icons/lu";
 import { useSnackbar } from 'notistack';
 
 const Sidebar = ({ toggleFileUploadModal, setToggleFileUploadModal, active, setActive, contract, account, setFiles }) => {
