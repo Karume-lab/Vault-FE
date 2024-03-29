@@ -36,12 +36,13 @@ favourites(myvault)
 
 
 
-add actions:
+#add actions:
     share
     delete
     edit
     like
     download
+    --add tooltips to them. 
 
 
 share modal:

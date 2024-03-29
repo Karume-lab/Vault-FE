@@ -61,7 +61,7 @@ const MyVault = ({ files, setFiles, contract, account }) => {
                 <p>Date </p>
                 <p>Size</p>
             </div>
-            <div className="flex flex-col gap-2 overflow-auto h-80 p-3">
+            <div className="flex flex-col overflow-auto h-80 p-3">
                 {files ? (
                     files.map(({ owner, dateUploaded, dateModified, dateAccessed, isFavourite, isArchived, cid, name, description, extension, tag, size }, index) => (
                         <File key={index} fileName={name} tag={tag} date={timestamp2DateTime(dateUploaded)} size={size} />
