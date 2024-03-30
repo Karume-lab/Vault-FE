@@ -10,7 +10,8 @@
         "name": "document11",
         "description": "This is the eleventh document",
         "extension": "pdf",
-        "tag": "EDUCATION"
+        "tag": "EDUCATION",
+        "size": "2.5MB"
     },
     {
         "owner": "Liam",
@@ -23,7 +24,8 @@
         "name": "document12",
         "description": "This is the twelfth document",
         "extension": "txt",
-        "tag": "FINANCE"
+        "tag": "FINANCE",
+        "size": "1.2KB"
     },
     {
         "owner": "Mia",
@@ -36,7 +38,8 @@
         "name": "document13",
         "description": "This is the thirteenth document",
         "extension": "docx",
-        "tag": "HEALTH"
+        "tag": "HEALTH",
+        "size": "4.8MB"
     },
     {
         "owner": "Noah",
@@ -49,7 +52,8 @@
         "name": "document14",
         "description": "This is the fourteenth document",
         "extension": "jpg",
-        "tag": "BUSINESS"
+        "tag": "BUSINESS",
+        "size": "750KB"
     },
     {
         "owner": "Olivia",
@@ -62,7 +66,8 @@
         "name": "document15",
         "description": "This is the fifteenth document",
         "extension": "xlsx",
-        "tag": "FAMILY"
+        "tag": "FAMILY",
+        "size": "3.2MB"
     },
     {
         "owner": "William",
@@ -75,7 +80,8 @@
         "name": "document16",
         "description": "This is the sixteenth document",
         "extension": "mp3",
-        "tag": "RANDOM"
+        "tag": "RANDOM",
+        "size": "6.5MB"
     },
     {
         "owner": "Sophia",
@@ -88,7 +94,8 @@
         "name": "document17",
         "description": "This is the seventeenth document",
         "extension": "png",
-        "tag": "OTHER"
+        "tag": "OTHER",
+        "size": "1.1MB"
     },
     {
         "owner": "James",
@@ -101,7 +108,8 @@
         "name": "document18",
         "description": "This is the eighteenth document",
         "extension": "pdf",
-        "tag": "HEALTH"
+        "tag": "HEALTH",
+        "size": "3.8MB"
     },
     {
         "owner": "Emma",
@@ -114,7 +122,8 @@
         "name": "document19",
         "description": "This is the nineteenth document",
         "extension": "doc",
-        "tag": "FINANCE"
+        "tag": "FINANCE",
+        "size": "2.9MB"
     },
     {
         "owner": "Daniel",
@@ -127,6 +136,7 @@
         "name": "document20",
         "description": "This is the twentieth document",
         "extension": "txt",
-        "tag": "OTHER"
+        "tag": "OTHER",
+        "size": "840KB"
     }
 ]
