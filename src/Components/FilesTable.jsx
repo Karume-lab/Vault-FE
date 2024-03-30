@@ -17,6 +17,7 @@ const FilesTable = ({ files, columns }) => {
     const data = useMemo(() => files, [files]);
     const [sorting, setSorting] = useState([]);
     const [filtering, setFiltering] = useState("");
+    const [activeFileId, setActiveFileId] = useState(0)
     const table = useReactTable({
         data,
         columns,
@@ -71,16 +72,21 @@ const FilesTable = ({ files, columns }) => {
                         </thead>
                         <tbody>
                             {table.getRowModel().rows.map((row) => (
-                                <tr key={row.id} className='hover:bg-customCactus-200 h-12 w-full '>
+                                <tr
+                                    key={row.id}
+                                    id={`${row.id}`}
+                                    className='hover:bg-customCactus-200 h-12 w-full'
+                                    onMouseOver={(e) => setActiveFileId(e.currentTarget.id)}
+                                >
                                     {row.getVisibleCells().map((cell) => (
                                         <td key={cell.id} className='border-b border-customCactus-400'>
                                             {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                         </td>
-
                                     ))}
-                                    <FileActions />
+                                    <FileActions file={files[activeFileId]} />
                                 </tr>
                             ))}
+
 
                         </tbody>
                     </table>

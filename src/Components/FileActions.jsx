@@ -1,15 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SlOptions } from "react-icons/sl";
 import { CiEdit } from "react-icons/ci";
 import { MdFavoriteBorder } from "react-icons/md";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { MdOutlineFileDownload } from "react-icons/md";
+import fileDownload from 'js-file-download';
+import axios from "axios";
 
 
-const FileActions = () => {
+const FileActions = ({ file }) => {
     const [fileOptionsOpen, setFileOptionsOpen] = useState(false);
+    const {id, cid, name, extension} = file;
+
+    const handleDownload = () => {
+        axios.get(`https://ipfs.io/ipfs/${cid}`, {
+            responseType: 'blob',
+        })
+            .then((res) => {
+                fileDownload(res.data, `${name}.${extension}`)
+            })
+            .catch((error) => {
+                console.error('Error downloading file:', error);
+            });
+    }
+    useEffect(() => console.log(file))
     return (
-        <div className="relative">
+        <td className="relative">
             <div onClick={() => setFileOptionsOpen(!fileOptionsOpen)} className="size-6 p-1 hover:bg-customCactus-100 rounded-full flex justify-center items-center">
                 <SlOptions />
             </div>
@@ -18,10 +34,10 @@ const FileActions = () => {
                     <p data-tooltip-target="tooltip-top" data-tooltip-placement="top" className="p-1 rounded-full hover:bg-customCactus-100"><CiEdit /> </p>
                     <p className="p-1 rounded-full hover:bg-customCactus-100"><MdFavoriteBorder /></p>
                     <p className="p-1 rounded-full hover:bg-customCactus-100"><IoShareSocialOutline /></p>
-                    <p className="p-1 rounded-full hover:bg-customCactus-100"><MdOutlineFileDownload /> </p>
+                    <p className="p-1 rounded-full hover:bg-customCactus-100" onClick={() => handleDownload()}><MdOutlineFileDownload /> </p>
                 </div>
             )}
-        </div>
+        </td>
     );
 };
 
