@@ -1,18 +1,8 @@
-import {
-    flexRender,
-    getCoreRowModel,
-    getFilteredRowModel,
-    getPaginationRowModel,
-    getSortedRowModel,
-    useReactTable,
-} from "@tanstack/react-table";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect } from "react";
 import { useSnackbar } from "notistack";
+import FilesTable from "./FilesTable";
 
 const Recents = ({ files, setFiles, contract, account }) => {
-    const data = useMemo(() => files, [files]);
-    const [sorting, setSorting] = useState([]);
-    const [filtering, setFiltering] = useState("");
     const { enqueueSnackbar } = useSnackbar();
 
     const columns = [
@@ -52,23 +42,6 @@ const Recents = ({ files, setFiles, contract, account }) => {
         return date;
     };
 
-
-    const table = useReactTable({
-        data,
-        columns,
-        getCoreRowModel: getCoreRowModel(),
-        getPaginationRowModel: getPaginationRowModel(),
-        getSortedRowModel: getSortedRowModel(),
-        getFilteredRowModel: getFilteredRowModel(),
-        state: {
-            sorting: sorting,
-            globalFilter: filtering,
-        },
-        onSortingChange: setSorting,
-        onGlobalFilterChange: setFiltering,
-    });
-
-
     useEffect(() => {
         getdata();
     });
@@ -79,68 +52,7 @@ const Recents = ({ files, setFiles, contract, account }) => {
                 <p className="ml-2 font-bold text-center text-3xl">RECENTS</p>
             </div>
             <div className="border-t border-1 w-11/12 self-center border-customCactus-400"></div>
-            <input
-                type="text"
-                value={filtering}
-                onChange={(e) => setFiltering(e.target.value)}
-            />
-            <table>
-                <thead>
-                    {table.getHeaderGroups().map((headerGroup) => (
-                        <tr key={headerGroup.id}>
-                            {headerGroup.headers.map((header) => (
-                                <th
-                                    key={header.id}
-                                    onClick={header.column.getToggleSortingHandler()}
-                                >
-                                    {header.isPlaceholder ? null : (
-                                        <div>
-                                            {flexRender(
-                                                header.column.columnDef.header,
-                                                header.getContext()
-                                            )}
-                                            {
-                                                { asc: "UP", desc: "DOWN" }[
-                                                header.column.getIsSorted() ?? null
-                                                ]
-                                            }
-                                        </div>
-                                    )}
-                                </th>
-                            ))}
-                        </tr>
-                    ))}
-                </thead>
-                <tbody>
-                    {table.getRowModel().rows.map((row) => (
-                        <tr key={row.id}>
-                            {row.getVisibleCells().map((cell) => (
-                                <td key={cell.id}>
-                                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                                </td>
-                            ))}
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-            <div>
-                <button onClick={() => table.setPageIndex(0)}>First Page</button>
-                <button
-                    disabled={!table.getCanPreviousPage()}
-                    onClick={() => table.previousPage()}
-                >
-                    Previous Page
-                </button>
-                <button
-                    disabled={!table.getCanNextPage()}
-                    onClick={() => table.nextPage()}
-                >
-                    Next Page
-                </button>
-                <button onClick={() => table.setPageIndex(table.getPageCount() - 1)}>
-                    Last Page
-                </button>
-            </div>
+            <FilesTable files={files} columns={columns} />
         </div>
     );
 };
