@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSnackbar } from "notistack";
 import FilesTable from "./FilesTable";
 
-const MyVault = ({ files, setFiles, contract, account }) => {
+const SharedWithMe = ({ files, setFiles, contract, account, active }) => {
     const { enqueueSnackbar } = useSnackbar();
     const columns = [
         {
@@ -54,9 +54,9 @@ const MyVault = ({ files, setFiles, contract, account }) => {
                 <p className="ml-2 font-bold text-center text-3xl">SHARED FILES</p>
             </div>
             <div className="border-t border-1 w-11/12 self-center border-customCactus-400"></div>
-            <FilesTable files={files} columns={columns} />
+            <FilesTable active={active} files={files} columns={columns} />
         </div>
     );
 };
 
-export default MyVault;
+export default SharedWithMe;

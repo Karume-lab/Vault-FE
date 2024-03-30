@@ -11,7 +11,7 @@ import SharedWithMe from "./SharedWithMe";
 const MainContent = ({ active, account, contract, files, setFiles }) => {
     const components = {
         1: <MyVault files={files} setFiles={setFiles} account={account} contract={contract} />,
-        2: <SharedWithMe files={files} setFiles={setFiles} account={account} contract={contract} />,
+        2: <SharedWithMe active={active} files={files} setFiles={setFiles} account={account} contract={contract} />,
         3: <Recents files={files} setFiles={setFiles} account={account} contract={contract} />,
         4: <Favorites files={files} setFiles={setFiles} account={account} contract={contract} />,
         5: <Tags />,

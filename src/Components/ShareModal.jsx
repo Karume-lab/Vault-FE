@@ -1,9 +1,9 @@
 import React from 'react'
 
-const ShareModal = ({file}) => {
+const ShareModal = ({ file }) => {
     return (
         <div className='bg-customCactus-100 rounded-lg p-2 flex flex-col gap-3 border-2 border-customCactus-400'>
-            <p className=''>Share File</p>
+            <p className=''>Sharing {file.name}</p>
             <div>
                 <p>Enter the wallet address of the Receiver</p>
                 <input

@@ -14,7 +14,7 @@ import { MdNavigateNext } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
 import { IoSearch } from "react-icons/io5";
 
-const FilesTable = ({ files, columns }) => {
+const FilesTable = ({ files, columns, active }) => {
     files = d;
     const data = useMemo(() => files, [files]);
     const [sorting, setSorting] = useState([]);
@@ -49,9 +49,7 @@ const FilesTable = ({ files, columns }) => {
                             onChange={(e) => setFiltering(e.target.value)}
                         />
                     </div>
-
                     <table className='table-auto w-full max-h-full'>
-
                         <thead className=''>
                             {table.getHeaderGroups().map((headerGroup) => (
                                 <tr key={headerGroup.id}>
@@ -93,7 +91,8 @@ const FilesTable = ({ files, columns }) => {
                                             {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                         </td>
                                     ))}
-                                    <FileActions file={files[activeFileId]} />
+                                    {active === 2 ? "" :
+                                        <FileActions file={files[activeFileId]} />}
                                 </tr>
                             ))}
                         </tbody>
