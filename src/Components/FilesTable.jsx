@@ -9,7 +9,7 @@ import {
 } from "@tanstack/react-table";
 import FileActions from "./FileActions"
 import d from "./dummyFiles.json";
-import { LuChevronFirst,  LuChevronLast } from "react-icons/lu";
+import { LuChevronFirst, LuChevronLast } from "react-icons/lu";
 import { MdNavigateNext } from "react-icons/md";
 
 const FilesTable = ({ files, columns }) => {
@@ -76,7 +76,7 @@ const FilesTable = ({ files, columns }) => {
                                         <td key={cell.id} className='border-b border-customCactus-400'>
                                             {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                         </td>
-                                        
+
                                     ))}
                                     <FileActions />
                                 </tr>
@@ -99,7 +99,7 @@ const FilesTable = ({ files, columns }) => {
                             <MdNavigateNext />
                         </button>
                         <button onClick={() => table.setPageIndex(table.getPageCount() - 1)}>
-                            <LuChevronLast />   
+                            <LuChevronLast />
                         </button>
                     </div>
                 </>
