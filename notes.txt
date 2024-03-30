@@ -88,7 +88,7 @@ theme:
 
 
 
-show active sidebar
-fix overflow
-table fix
+# show active sidebar
+# fix overflow
+# table fix
 
