@@ -49,9 +49,9 @@ const MyVault = ({ files, setFiles, contract, account }) => {
     return (
         <div className="rounded-2xl bg-customCactus-100  h-full overflow-hidden flex flex-col p-2 text-customCactus-400">
             <div className="pt-1 pl-2 rounded-r-2xl-2xl rounded-t-2xl ">
-                <p className="ml-2 font-bold text-center text-3xl">MY VAULT</p>
+                <p className="ml-2 font-bold text-center text-2xl">MY VAULT</p>
             </div>
-            <div className="border-t border-1 w-11/12 self-center border-customCactus-400"></div>
+            <div className="border-t border-1 w-full self-center border-customCactus-400 bg-red-700"></div>
             <FilesTable files={files} columns={columns} />
         </div>
     );

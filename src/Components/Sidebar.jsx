@@ -3,7 +3,6 @@ import TabButton from './TabButton'; // Assuming Button component is in a separa
 import { MdFavoriteBorder, MdOutlineBookmarkBorder } from "react-icons/md";
 import { GrVirtualStorage } from "react-icons/gr";
 import { PiVaultBold } from "react-icons/pi";
-import { FaRegTrashAlt } from "react-icons/fa";
 import { FaRegClock } from "react-icons/fa6";
 import { LuSettings, LuUploadCloud } from "react-icons/lu";
 import { BiLogOut } from "react-icons/bi";
@@ -56,16 +55,12 @@ const Sidebar = ({ toggleFileUploadModal, setToggleFileUploadModal, active, setA
     setActive(6);
   }
 
-  const handleTrashClick = async () => {
-    setActive(7);
-  }
-
   const handleSettingsClick = async () => {
     setActive(8);
   }
 
   const handleSignOutClick = async () => {
-    setActive(8);
+    setActive(9);
   }
 
 
@@ -82,7 +77,6 @@ const Sidebar = ({ toggleFileUploadModal, setToggleFileUploadModal, active, setA
         <TabButton handleClick={handleTagsClick} icon={<MdOutlineBookmarkBorder />} text="Tags" active={active === 5} />
         <div className='border-t-2 w-3/4 self-center m-1'></div>
         <TabButton handleClick={handleStorageClick} icon={<GrVirtualStorage />} text="Storage" active={active === 6} />
-        <TabButton handleClick={handleTrashClick} icon={<FaRegTrashAlt />} text="Trash" active={active === 7} />
       </div>
       <div className='flex flex-col'>
         <TabButton handleClick={handleSettingsClick} icon={<LuSettings />} text="Settings" active={active === 8} />
