@@ -9,6 +9,8 @@ import {
 } from "@tanstack/react-table";
 import FileActions from "./FileActions"
 import d from "./dummyFiles.json";
+import { LuChevronFirst,  LuChevronLast } from "react-icons/lu";
+import { MdNavigateNext } from "react-icons/md";
 
 const FilesTable = ({ files, columns }) => {
     files = d;
@@ -35,12 +37,13 @@ const FilesTable = ({ files, columns }) => {
             {(files && files.length) ?
                 <>
                     <input
+                        className='h-7 rounded-2xl mt-2 bg-customCactus-200 ring-0 '
                         type="text"
                         value={filtering}
                         onChange={(e) => setFiltering(e.target.value)}
                     />
-                    <table>
-                        <thead>
+                    <table className='table-auto w-full max-h-full'>
+                        <thead className=''>
                             {table.getHeaderGroups().map((headerGroup) => (
                                 <tr key={headerGroup.id}>
                                     {headerGroup.headers.map((header) => (
@@ -68,11 +71,12 @@ const FilesTable = ({ files, columns }) => {
                         </thead>
                         <tbody>
                             {table.getRowModel().rows.map((row) => (
-                                <tr key={row.id}>
+                                <tr key={row.id} className='hover:bg-customCactus-200 h-12 w-full '>
                                     {row.getVisibleCells().map((cell) => (
-                                        <td key={cell.id}>
+                                        <td key={cell.id} className='border-b border-customCactus-400'>
                                             {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                         </td>
+                                        
                                     ))}
                                     <FileActions />
                                 </tr>
@@ -80,8 +84,8 @@ const FilesTable = ({ files, columns }) => {
 
                         </tbody>
                     </table>
-                    <div>
-                        <button onClick={() => table.setPageIndex(0)}>First Page</button>
+                    <div className='bg-red-300'>
+                        <button onClick={() => table.setPageIndex(0)}><LuChevronFirst /></button>
                         <button
                             disabled={!table.getCanPreviousPage()}
                             onClick={() => table.previousPage()}
@@ -92,10 +96,10 @@ const FilesTable = ({ files, columns }) => {
                             disabled={!table.getCanNextPage()}
                             onClick={() => table.nextPage()}
                         >
-                            Next Page
+                            <MdNavigateNext />
                         </button>
                         <button onClick={() => table.setPageIndex(table.getPageCount() - 1)}>
-                            Last Page
+                            <LuChevronLast />   
                         </button>
                     </div>
                 </>

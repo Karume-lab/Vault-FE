@@ -6,6 +6,7 @@ import MainContent from './Components/MainContent';
 import { ethers } from "ethers"
 import abi from "./abi/Vault.json"
 import { useSnackbar } from 'notistack';
+import Landing from './Components/Landing';
 
 const App = () => {
   const [account, setAccount] = useState("");
@@ -18,21 +19,7 @@ const App = () => {
   const [active, setActive] = useState(1);
 
 
-  const connectWallet = async () => {
-    if (typeof window.ethereum !== 'undefined') {
-      try {
-        await window.ethereum.request({ method: 'eth_requestAccounts' });
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
-        const signer = provider.getSigner();
-        const address = await signer.getAddress();
-        console.log('Connected to MetaMask with address:', address);
-      } catch (error) {
-        console.error('Error connecting to MetaMask:', error);
-      }
-    } else {
-      console.error('MetaMask is not installed');
-    }
-  };
+
 
   useEffect(() => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -87,7 +74,7 @@ const App = () => {
             </div>
           </div>
           :
-          <button onClick={connectWallet} className="bg-customCactus-400 hover:bg-customCactus-300 text-white font-bold py-2 px-4 rounded w-fit m-auto">Connect MetaMask Wallet</button>
+          <Landing />
         }
       </div>
     </div>
