@@ -76,7 +76,6 @@ const FilesTable = ({ files, columns }) => {
                                             )}
                                         </th>
                                     ))}
-                                    {/* Additional empty cell for the action column */}
                                     <th className="px-4 py-2"></th>
                                 </tr>
                             ))}

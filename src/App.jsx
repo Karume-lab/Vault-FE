@@ -7,6 +7,7 @@ import { ethers } from "ethers"
 import abi from "./abi/Vault.json"
 import { useSnackbar } from 'notistack';
 import Landing from './Components/Landing';
+import ShareModal from './Components/ShareModal';
 
 const App = () => {
   const [account, setAccount] = useState("");
