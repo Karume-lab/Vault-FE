@@ -6,7 +6,6 @@ import MainContent from './Components/MainContent';
 import { ethers } from "ethers"
 import abi from "./abi/Vault.json"
 import { useSnackbar } from 'notistack';
-import { moreFiles } from './dummyFiles';
 
 const App = () => {
   const [account, setAccount] = useState("");
@@ -84,7 +83,7 @@ const App = () => {
             </div>
             <div className='flex-1 relative'>
               <UploadModal toggleFileUploadModal={toggleFileUploadModal} setToggleFileUploadModal={setToggleFileUploadModal} account={account} contract={contract} provider={provider} />
-              <MainContent files={moreFiles} setFiles={setFiles} active={active} contract={contract} account={account} />
+              <MainContent files={files} setFiles={setFiles} active={active} contract={contract} account={account} />
             </div>
           </div>
           :
