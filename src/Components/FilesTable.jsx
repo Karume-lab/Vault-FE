@@ -13,7 +13,8 @@ import { LuChevronFirst, LuChevronLast } from "react-icons/lu";
 import { MdNavigateNext } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
 import { IoSearch } from "react-icons/io5";
-import testFiles from "./dummyFiles.json";
+import nofile from "../assets/img/empty.png";
+// import testFiles from "./dummyFiles.json";
 
 const FilesTable = ({ files, columns, active, contract }) => {
     // files = testFiles;
@@ -127,7 +128,10 @@ const FilesTable = ({ files, columns, active, contract }) => {
                     </div>
                 </>
                 :
-                <div>NO FILES UPLOADED YET ...</div>
+                <div className='flex flex-col justify-center items-center w-full h-full'>
+                    <img src={nofile} alt="No files uploaded" className='size-80' />
+                    <p className='text-lg'>Oops! Nothing here. </p>
+                </div>
             }
         </div>
     )
