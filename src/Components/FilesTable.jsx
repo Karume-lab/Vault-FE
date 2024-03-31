@@ -12,12 +12,12 @@ import { LuChevronFirst, LuChevronLast } from "react-icons/lu";
 import { MdNavigateNext } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
 import { IoSearch } from "react-icons/io5";
-import ShareModal from './ShareModal';
-import d from "./dummyFiles.json";
+import testFiles from "./dummyFiles.json";
 
-const FilesTable = ({ files, columns, active, account, contract }) => {
-    // files = d;
+const FilesTable = ({ files, columns, active, contract }) => {
+    // files = testFiles;
     const data = useMemo(() => files, [files]);
+
     const [sorting, setSorting] = useState([]);
     const [filtering, setFiltering] = useState("");
     const [activeFileId, setActiveFileId] = useState(0)
@@ -50,7 +50,6 @@ const FilesTable = ({ files, columns, active, account, contract }) => {
                             onChange={(e) => setFiltering(e.target.value)}
                         />
                     </div>
-                    <ShareModal file={files[0]} />
                     <table className='table-auto w-full max-h-full'>
                         <thead className=''>
                             {table.getHeaderGroups().map((headerGroup) => (

@@ -49,16 +49,16 @@ const Sidebar = ({ toggleFileUploadModal, setToggleFileUploadModal, active, setA
         <TabButton handleClick={() => setToggleFileUploadModal(!toggleFileUploadModal)} icon={<LuUploadCloud />} text="Upload File" active={active === null} />
         <div className='border-t-2 w-3/4 self-center m-1'></div>
         <TabButton handleClick={handleMyVaultClick} icon={<PiVaultBold />} text="My Vault" active={active === 1} />
-        <TabButton handleClick={handleShareClick} icon={<IoShareSocialOutline />} text="Shared with me" active={active === 2} />
+        {/* <TabButton handleClick={handleShareClick} icon={<IoShareSocialOutline />} text="Shared with me" active={active === 2} /> */}
         <div className='border-t-2 w-3/4 self-center m-1'></div>
         <TabButton handleClick={handleRecentsClick} icon={<FaRegClock />} text="Recents" active={active === 3} />
         <TabButton handleClick={handleFavoritesClick} icon={<MdFavoriteBorder />} text="Favorites" active={active === 4} />
         <TabButton handleClick={handleTagsClick} icon={<MdOutlineBookmarkBorder />} text="Tags" active={active === 5} />
         <div className='border-t-2 w-3/4 self-center m-1'></div>
-        <TabButton handleClick={handleStorageClick} icon={<GrVirtualStorage />} text="Storage" active={active === 6} />
+        {/* <TabButton handleClick={handleStorageClick} icon={<GrVirtualStorage />} text="Storage" active={active === 6} /> */}
       </div>
       <div className='flex flex-col'>
-        <TabButton handleClick={handleSettingsClick} icon={<LuSettings />} text="Settings" active={active === 8} />
+        {/* <TabButton handleClick={handleSettingsClick} icon={<LuSettings />} text="Settings" active={active === 8} /> */}
         <TabButton handleClick={handleSignOutClick} icon={<BiLogOut />} text="Sign Out" active={false} />
       </div>
     </div>

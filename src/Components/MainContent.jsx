@@ -13,16 +13,6 @@ import { useEffect } from "react";
 const MainContent = ({ active, account, contract, files, setFiles }) => {
     const { enqueueSnackbar } = useSnackbar();
 
-    const timestamp2DateTime = (timestamp) => {
-        let date;
-        if (timestamp.toString() === "0") {
-            date = null;
-        } else {
-            date = new Date(timestamp * 1000).toUTCString();
-        }
-        return date;
-    };
-
     useEffect(() => {
         const getdata = async () => {
             try {
@@ -43,7 +33,7 @@ const MainContent = ({ active, account, contract, files, setFiles }) => {
 
     const components = {
         1: <MyVault files={files} active={active} account={account} contract={contract} />,
-        2: <SharedWithMe files={files} active={active} account={account} contract={contract} />,
+        // 2: <SharedWithMe files={files} active={active} account={account} contract={contract} />,
         3: <Recents files={files} active={active} account={account} contract={contract} />,
         4: <Favorites files={files} active={active} account={account} contract={contract} />,
         5: <Tags files={files} active={active} account={account} contract={contract} />,
