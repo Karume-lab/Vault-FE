@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
-import { useSnackbar } from "notistack";
+import React from "react";
 import FilesTable from "./FilesTable";
 
-const SharedWithMe = ({ files, setFiles, contract, account, active }) => {
-    const { enqueueSnackbar } = useSnackbar();
+const SharedWithMe = ({ files, active }) => {
     const columns = [
         {
             id: "owner", header: "Owner", accessorKey: "owner"

@@ -3,7 +3,6 @@ import TabButton from './TabButton'; // Assuming Button component is in a separa
 import { MdFavoriteBorder, MdOutlineBookmarkBorder } from "react-icons/md";
 import { GrVirtualStorage } from "react-icons/gr";
 import { PiVaultBold } from "react-icons/pi";
-import { FaRegTrashAlt } from "react-icons/fa";
 import { FaRegClock } from "react-icons/fa6";
 import { LuSettings, LuUploadCloud } from "react-icons/lu";
 import { BiLogOut } from "react-icons/bi";

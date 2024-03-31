@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
-import { useSnackbar } from "notistack";
+import React from "react";
 import FilesTable from "./FilesTable";
 
-const Recents = ({ files, setFiles, contract, account }) => {
-    const { enqueueSnackbar } = useSnackbar();
+const Recents = ({ files }) => {
 
     const columns = [
         { id: "name", header: "File", accessorKey: "name" },

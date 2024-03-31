@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import FilesTable from "./FilesTable";
 
-const MyVault = ({ files, setFiles, contract, account }) => {
+const MyVault = ({ files }) => {
     const columns = [
         { id: "name", header: "File", accessorKey: "name" },
         {
