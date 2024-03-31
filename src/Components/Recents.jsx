@@ -1,5 +1,6 @@
-import React from "react";
+import React from 'react'
 import FilesTable from "./FilesTable";
+
 
 const Recents = ({ files, account, contract, active }) => {
     const columns = [

@@ -36,12 +36,13 @@ favourites(myvault)
 
 
 
-add actions:
+#add actions:
     share
     delete
     edit
     like
     download
+    --add tooltips to them. 
 
 
 share modal:
@@ -87,7 +88,7 @@ theme:
 
 
 
-show active sidebar
-fix overflow
-table fix
+# show active sidebar
+# fix overflow
+# table fix
 

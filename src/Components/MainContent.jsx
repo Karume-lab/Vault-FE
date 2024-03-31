@@ -55,6 +55,7 @@ const MainContent = ({ active, account, contract, files, setFiles }) => {
     return (
         <>
             {components[active]}
+
         </>
     );
 }

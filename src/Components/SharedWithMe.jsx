@@ -21,8 +21,14 @@ const SharedWithMe = ({ files, account, contract, active }) => {
             <div className="pt-1 pl-2 rounded-r-2xl-2xl rounded-t-2xl ">
                 <p className="ml-2 font-bold text-center text-3xl">SHARED FILES</p>
             </div>
-            <div className="border-t border-1 w-11/12 self-center border-customCactus-400"></div>
-            <FilesTable files={files} active={active} account={account} contract={contract} columns={columns} />
+            <div className='border-t border-1 w-11/12 self-center border-customCactus-400'></div>
+            <div className="flex flex-row justify-around text-xs pt-2">
+                <p>Name</p>
+                <p>Tag</p>
+                <p>Owner</p>
+                <p>Date Accessed</p>
+                <p>Size</p>
+            </div>
         </div>
     );
 };

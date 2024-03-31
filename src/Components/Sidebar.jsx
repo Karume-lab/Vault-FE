@@ -9,6 +9,7 @@ import { BiLogOut } from "react-icons/bi";
 import { IoShareSocialOutline } from "react-icons/io5";
 
 const Sidebar = ({ toggleFileUploadModal, setToggleFileUploadModal, active, setActive }) => {
+
   const handleMyVaultClick = async () => {
     setActive(1);
   }
@@ -33,9 +34,8 @@ const Sidebar = ({ toggleFileUploadModal, setToggleFileUploadModal, active, setA
     setActive(6);
   }
 
-
   const handleSettingsClick = async () => {
-    setActive(7);
+    setActive(8);
   }
 
   const handleSignOutClick = async () => {
