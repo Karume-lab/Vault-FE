@@ -8,14 +8,15 @@ import {
     useReactTable,
 } from "@tanstack/react-table";
 import FileActions from "./FileActions"
-import d from "./dummyFiles.json";
 import { LuChevronFirst, LuChevronLast } from "react-icons/lu";
 import { MdNavigateNext } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
 import { IoSearch } from "react-icons/io5";
+import ShareModal from './ShareModal';
+import d from "./dummyFiles.json";
 
-const FilesTable = ({ files, columns }) => {
-    files = d;
+const FilesTable = ({ files, columns, active, account, contract }) => {
+    // files = d;
     const data = useMemo(() => files, [files]);
     const [sorting, setSorting] = useState([]);
     const [filtering, setFiltering] = useState("");
@@ -49,9 +50,8 @@ const FilesTable = ({ files, columns }) => {
                             onChange={(e) => setFiltering(e.target.value)}
                         />
                     </div>
-
+                    <ShareModal file={files[0]} />
                     <table className='table-auto w-full max-h-full'>
-
                         <thead className=''>
                             {table.getHeaderGroups().map((headerGroup) => (
                                 <tr key={headerGroup.id}>
@@ -76,7 +76,6 @@ const FilesTable = ({ files, columns }) => {
                                             )}
                                         </th>
                                     ))}
-                                    {/* Additional empty cell for the action column */}
                                     <th className="px-4 py-2"></th>
                                 </tr>
                             ))}
@@ -94,7 +93,8 @@ const FilesTable = ({ files, columns }) => {
                                             {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                         </td>
                                     ))}
-                                    <FileActions file={files[activeFileId]} />
+                                    {active === 2 ? "" :
+                                        <FileActions file={files[activeFileId]} />}
                                 </tr>
                             ))}
                         </tbody>

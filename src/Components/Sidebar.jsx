@@ -7,32 +7,11 @@ import { FaRegClock } from "react-icons/fa6";
 import { LuSettings, LuUploadCloud } from "react-icons/lu";
 import { BiLogOut } from "react-icons/bi";
 import { IoShareSocialOutline } from "react-icons/io5";
-import { useSnackbar } from 'notistack';
 
-
-const Sidebar = ({ toggleFileUploadModal, setToggleFileUploadModal, active, setActive, contract, account, setFiles }) => {
-  const { enqueueSnackbar } = useSnackbar();
-
-
-  const getdata = async () => {
-    let dataArray;
-    try {
-      dataArray = await contract.getFiles(account);
-    } catch (error) {
-      enqueueSnackbar("You don't have access", { variant: "error" });
-      console.error(error);
-    }
-    if (!dataArray) {
-      setFiles(dataArray);
-      enqueueSnackbar("Fetched files successfully", { variant: "success" });
-    } else {
-      enqueueSnackbar("No file(s) to display", { variant: "info" });
-    }
-  };
+const Sidebar = ({ toggleFileUploadModal, setToggleFileUploadModal, active, setActive }) => {
 
   const handleMyVaultClick = async () => {
     setActive(1);
-    setFiles(await getdata());
   }
 
   const handleShareClick = async () => {
@@ -60,7 +39,7 @@ const Sidebar = ({ toggleFileUploadModal, setToggleFileUploadModal, active, setA
   }
 
   const handleSignOutClick = async () => {
-    setActive(9);
+    setActive(8);
   }
 
 

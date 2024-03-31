@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": 0,
         "owner": "Kate",
         "dateUploaded": 1646746608551,
         "dateModified": 1646746608551,
@@ -15,7 +15,7 @@
         "size": "2.5MB"
     },
     {
-        "id": 2,
+        "id": 1,
         "owner": "Liam",
         "dateUploaded": 1646746608551,
         "dateModified": 1646746608551,
@@ -30,7 +30,7 @@
         "size": "1.2KB"
     },
     {
-        "id": 3,
+        "id": 2,
         "owner": "Mia",
         "dateUploaded": 1646746608551,
         "dateModified": 1646746608551,
@@ -45,7 +45,7 @@
         "size": "4.8MB"
     },
     {
-        "id": 4,
+        "id": 3,
         "owner": "Noah",
         "dateUploaded": 1646746608551,
         "dateModified": 1646746608551,
@@ -60,7 +60,7 @@
         "size": "750KB"
     },
     {
-        "id": 5,
+        "id": 4,
         "owner": "Olivia",
         "dateUploaded": 1646746608551,
         "dateModified": 1646746608551,
@@ -75,7 +75,7 @@
         "size": "3.2MB"
     },
     {
-        "id": 6,
+        "id": 5,
         "owner": "William",
         "dateUploaded": 1646746608551,
         "dateModified": 1646746608551,
@@ -90,7 +90,7 @@
         "size": "6.5MB"
     },
     {
-        "id": 7,
+        "id": 6,
         "owner": "Sophia",
         "dateUploaded": 1646746608551,
         "dateModified": 1646746608551,
@@ -105,7 +105,7 @@
         "size": "1.1MB"
     },
     {
-        "id": 8,
+        "id": 7,
         "owner": "James",
         "dateUploaded": 1646746608551,
         "dateModified": 1646746608551,
@@ -120,7 +120,7 @@
         "size": "3.8MB"
     },
     {
-        "id": 9,
+        "id": 8,
         "owner": "Emma",
         "dateUploaded": 1646746608551,
         "dateModified": 1646746608551,
@@ -135,7 +135,7 @@
         "size": "2.9MB"
     },
     {
-        "id": 10,
+        "id": 9,
         "owner": "Daniel",
         "dateUploaded": 1646746608551,
         "dateModified": 1646746608551,
