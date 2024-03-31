@@ -69,28 +69,24 @@ Below are sapmles of the dapp. The app consists of two primary containers: the s
 
 ## Tech Stack
 
-<!-- <div style="display: flex; justify-content: center; align-items: center;">
+<div style="display: flex; justify-content: center; align-items: center;">
     <div style="text-align: center;">
-        <img src="./README_ASSETS/solidity-logo.png" alt="" style="width: 100px;">
-        <p>Solidity: Language for writing smart contracts on the Ethereum blockchain</p>
+        <img src="./README_ASSETS/html.png" alt="" style="width: 100px;">
+        <p>HTML</p>
     </div>
     <div style="text-align: center;">
-        <img src="./README_ASSETS/ethersjs-logo.png" alt="" style="width: 100px;">
-        <p>Ethers.js: JavaScript library for interacting with Ethereum nodes and smart contracts</p>
+        <img src="./README_ASSETS/css.png" alt="" style="width: 100px;">
+        <p>Tailwind for styling</p>
     </div>
     <div style="text-align: center;">
-        <img src="./README_ASSETS/metamask-logo.png" alt="" style="width: 100px;">
-        <p>MetaMask: Browser extension for accessing Ethereum-enabled distributed applications</p>
-    </div>
-    <div style="text-align: center;">
-        <img src="./README_ASSETS/hardhat-logo.png" alt="" style="width: 100px;">
-        <p>Hardhat: Ethereum development environment for building, testing, and deploying smart contracts</p>
+        <img src="./README_ASSETS/react.png" alt="" style="width: 100px;">
+        <p>React</p>
     </div>
     <div style="text-align: center;">
         <img src="./README_ASSETS/vs_code-logo.png" alt="" style="width: 100px;">
         <p>Visual Studio Code: Integrated development environment (IDE) for coding and editing software</p>
     </div>
-</div> -->
+</div>
 
 ## Currently Available Features
 
