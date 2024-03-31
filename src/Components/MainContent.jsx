@@ -13,22 +13,6 @@ import { useEffect } from "react";
 const MainContent = ({ active, account, contract, files, setFiles }) => {
     const { enqueueSnackbar } = useSnackbar();
 
-    const getdata = async () => {
-        let dataArray;
-        try {
-            dataArray = await contract.getFiles(account);
-        } catch (error) {
-            enqueueSnackbar("You don't have access", { variant: "error" });
-            console.error(error);
-        }
-        if (!dataArray) {
-            setFiles(dataArray);
-            enqueueSnackbar("Fetched files successfully", { variant: "success" });
-        } else {
-            enqueueSnackbar("No file(s) to display", { variant: "info" });
-        }
-    };
-
     const timestamp2DateTime = (timestamp) => {
         let date;
         if (timestamp.toString() === "0") {
@@ -58,14 +42,14 @@ const MainContent = ({ active, account, contract, files, setFiles }) => {
     }, [account, contract, enqueueSnackbar, setFiles]);
 
     const components = {
-        1: <MyVault files={files} setFiles={setFiles} account={account} contract={contract} />,
-        2: <SharedWithMe files={files} setFiles={setFiles} account={account} contract={contract} />,
-        3: <Recents files={files} setFiles={setFiles} account={account} contract={contract} />,
-        4: <Favorites files={files} setFiles={setFiles} account={account} contract={contract} />,
-        5: <Tags files={files} setFiles={setFiles} account={account} contract={contract} />,
-        6: <Storage files={files} setFiles={setFiles} account={account} contract={contract} />,
-        7: <Settings files={files} setFiles={setFiles} account={account} contract={contract} />,
-        8: <SignOut files={files} setFiles={setFiles} account={account} contract={contract} />,
+        1: <MyVault files={files} account={account} contract={contract} />,
+        2: <SharedWithMe files={files} account={account} contract={contract} />,
+        3: <Recents files={files} account={account} contract={contract} />,
+        4: <Favorites files={files} account={account} contract={contract} />,
+        5: <Tags files={files} account={account} contract={contract} />,
+        6: <Storage files={files} account={account} contract={contract} />,
+        7: <Settings files={files} account={account} contract={contract} />,
+        8: <SignOut files={files} account={account} contract={contract} />,
     };
 
     return (

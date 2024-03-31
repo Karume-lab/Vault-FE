@@ -1,7 +1,7 @@
 import React from "react";
 import FilesTable from "./FilesTable";
 
-const MyVault = ({ files }) => {
+const MyVault = ({ files, account, contract }) => {
     const columns = [
         { id: "name", header: "File", accessorKey: "name" },
         {
