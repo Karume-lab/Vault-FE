@@ -1,7 +1,7 @@
 import React from "react";
 import FilesTable from "./FilesTable";
 
-const MyVault = ({ files, account, contract }) => {
+const MyVault = ({ files, account, contract, active }) => {
     const columns = [
         { id: "name", header: "File", accessorKey: "name" },
         {
@@ -19,7 +19,7 @@ const MyVault = ({ files, account, contract }) => {
                 <p className="ml-2 font-bold text-center text-2xl">MY VAULT</p>
             </div>
             <div className="border-t border-1 w-full self-center border-customCactus-400 bg-red-700"></div>
-            <FilesTable files={files} columns={columns} />
+            <FilesTable files={files} active={active} account={account} contract={contract} columns={columns} />
         </div>
     );
 };

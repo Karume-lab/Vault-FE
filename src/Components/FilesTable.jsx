@@ -8,14 +8,14 @@ import {
     useReactTable,
 } from "@tanstack/react-table";
 import FileActions from "./FileActions"
-import d from "./dummyFiles.json";
 import { LuChevronFirst, LuChevronLast } from "react-icons/lu";
 import { MdNavigateNext } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
 import { IoSearch } from "react-icons/io5";
 import ShareModal from './ShareModal';
+import d from "./dummyFiles.json";
 
-const FilesTable = ({ files, columns, active }) => {
+const FilesTable = ({ files, columns, active, account, contract }) => {
     // files = d;
     const data = useMemo(() => files, [files]);
     const [sorting, setSorting] = useState([]);
@@ -38,6 +38,7 @@ const FilesTable = ({ files, columns, active }) => {
 
     return (
         <div>
+            <div>{active}</div>
             {(files && files.length) ?
                 <>
                     <div className='flex items-center justify-end p-1 gap-1 flex-grow'>

@@ -42,14 +42,14 @@ const MainContent = ({ active, account, contract, files, setFiles }) => {
     }, [account, contract, enqueueSnackbar, setFiles]);
 
     const components = {
-        1: <MyVault files={files} account={account} contract={contract} />,
-        2: <SharedWithMe files={files} account={account} contract={contract} />,
-        3: <Recents files={files} account={account} contract={contract} />,
-        4: <Favorites files={files} account={account} contract={contract} />,
-        5: <Tags files={files} account={account} contract={contract} />,
-        6: <Storage files={files} account={account} contract={contract} />,
-        7: <Settings files={files} account={account} contract={contract} />,
-        8: <SignOut files={files} account={account} contract={contract} />,
+        1: <MyVault files={files} active={active} account={account} contract={contract} />,
+        2: <SharedWithMe files={files} active={active} account={account} contract={contract} />,
+        3: <Recents files={files} active={active} account={account} contract={contract} />,
+        4: <Favorites files={files} active={active} account={account} contract={contract} />,
+        5: <Tags files={files} active={active} account={account} contract={contract} />,
+        6: <Storage files={files} active={active} account={account} contract={contract} />,
+        7: <Settings files={files} active={active} account={account} contract={contract} />,
+        8: <SignOut files={files} active={active} account={account} contract={contract} />,
     };
 
     return (

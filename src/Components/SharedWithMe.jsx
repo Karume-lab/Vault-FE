@@ -1,7 +1,7 @@
 import React from "react";
 import FilesTable from "./FilesTable";
 
-const SharedWithMe = ({ files, active }) => {
+const SharedWithMe = ({ files, account, contract, active }) => {
     const columns = [
         {
             id: "owner", header: "Owner", accessorKey: "owner"
@@ -22,8 +22,7 @@ const SharedWithMe = ({ files, active }) => {
                 <p className="ml-2 font-bold text-center text-3xl">SHARED FILES</p>
             </div>
             <div className="border-t border-1 w-11/12 self-center border-customCactus-400"></div>
-            {active}
-            {active === 2 ? "" : <FilesTable active={active} files={files} columns={columns} />}
+            <FilesTable files={files} active={active} account={account} contract={contract} columns={columns} />
         </div>
     );
 };
