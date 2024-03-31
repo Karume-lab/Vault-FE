@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import {
     flexRender,
     getCoreRowModel,
@@ -53,14 +54,14 @@ const FilesTable = ({ files, columns, active, contract }) => {
                         </div>
                     </div>
                     <table className='table-auto w-full max-h-full'>
-                        <thead className=''>
+                        <thead>
                             {table.getHeaderGroups().map((headerGroup) => (
                                 <tr key={headerGroup.id}>
                                     {headerGroup.headers.map((header) => (
                                         <th
                                             key={header.id}
                                             onClick={header.column.getToggleSortingHandler()}
-                                            className="px-4 py-2"
+                                            className="px-4 py-2 cursor-pointer"
                                         >
                                             {header.isPlaceholder ? null : (
                                                 <div className="flex items-center">
@@ -69,7 +70,7 @@ const FilesTable = ({ files, columns, active, contract }) => {
                                                         header.getContext()
                                                     )}
                                                     {
-                                                        { asc: "UP", desc: "DOWN" }[
+                                                        { asc: <IoIosArrowUp />, desc: <IoIosArrowDown /> }[
                                                         header.column.getIsSorted() ?? null
                                                         ]
                                                     }
