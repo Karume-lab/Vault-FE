@@ -36,51 +36,54 @@ const Landing = () => {
     */
 
     return (
-        <div className='bg-white w-full h-full text-customCactus-400 px-28 '>
-            <div className='flex w-full justify-between '>
-                <img src={files} alt="files" className=' md:size-10 size-4/5'/>
+        <div className='bg-white w-full h-full text-customCactus-400 '>
+            <div className='flex w-full justify-between px-28  '>
+                <img src={files} alt="files" className=' md:size-10 size-4/5' />
                 <div className=' place-content-center w-full'>
                     <div className='text-left'>
                         <h1 className='font-extrabold text-4xl'>LOREM IPSUM DOLOREM IST.</h1>
                         <p className='font-bold '>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, labore!</p>
                     </div>
-                    <button onClick={connectWallet} className="mt-10 shadow-xl shadow-customCactus-400 bg-customCactus-400 hover:bg-customCactus-300 text-white font-bold py-2 px-4 rounded w-fit m-auto">Connect MetaMask Wallet</button>
+                    <button onClick={connectWallet} className="mt-10 shadow-xl shadow- bg-customCactus-400 hover:bg-customCactus-300 text-white font-bold py-2 px-4 rounded w-fit m-auto">Connect MetaMask Wallet</button>
                 </div>
             </div>
-            <div className=' flex items-center py-20 '>
+            <div className=' flex items-center py-20 px-28 '>
                 <div >
                     <h3 className='text-4xl mb-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo nam reiciendis veniam harum. Illo, recusandae?</h3>
                     <p className='text-xl'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, veniam provident impedit odit officia et rerum voluptates veritatis consectetur harum labore accusamus dolorem consequuntur quam!</p>
                 </div>
                 <img src={security} alt="security of files" className='size-4/5' />
             </div>
-            <div className='flex items-center pb-20'>
-                <img src={wallet} alt="metamask wallet" className='size-4/5'/>
+            <div className='flex items-center pb-20 px-28 '>
+                <img src={wallet} alt="metamask wallet" className='size-4/5' />
                 <div >
                     <h3 className='text-4xl mb-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo nam reiciendis veniam harum. Illo, recusandae?</h3>
                     <p className='text-xl'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, veniam provident impedit odit officia et rerum voluptates veritatis consectetur harum labore accusamus dolorem consequuntur quam!</p>
                 </div>
             </div>
-            <div className="border-b border-customCactus-400"></div>
-            <div className='flex w-full justify-around  drop-shadow-2xl gap-3 py-16'>
+            <div className="border-b border-customCactus-400 px-28 "></div>
+            <div className='flex w-full justify-around  drop-shadow-2xl gap-3 py-16 px-28 '>
                 <div className='rounded-xl border-gray-50 shadow-xl shadow-customCactus-400 size-1/3 flex flex-col place-content-center p-2'>
-                <img src={upload} alt="upload files" className='size-80'/>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, veniam.</p>
+                    <img src={upload} alt="upload files" className='size-80' />
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, veniam.</p>
                 </div>
                 <div className='rounded-xl border-gray-50 shadow-xl shadow-customCactus-400 size-1/3 flex flex-col place-content-center p-2'>
-                <img src={sort} alt="sort files" className='size-80'/>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, eaque.</p>
+                    <img src={sort} alt="sort files" className='size-80' />
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, eaque.</p>
                 </div>
                 <div className='rounded-xl border-gray-50 shadow-xl shadow-customCactus-400 size-1/3 flex flex-col place-content-center p-2'>
-                <img src={find} alt="find files" className='size-80'/>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, aliquid.</p>
+                    <img src={find} alt="find files" className='size-80' />
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, aliquid.</p>
                 </div>
             </div>
-            <div className=''>
-                <img src={own} alt="own your files" />
+            <div className='flex flex-col justify-center px-28 mb-10'>
+                <div className='flex justify-center'>
+                    <img src={own} alt="own your files" className='size-80' />
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates quae sint in, debitis ratione vitae obcaecati temporibus nisi nulla necessitatibus cupiditate a earum nihil. Totam minus eligendi voluptatem voluptatum quos?</p>
+                <button onClick={connectWallet} className="mt-10 shadow-xl shadow-black bg-customCactus-400 hover:bg-customCactus-300 text-white font-bold py-2 px-4 rounded w-fit m-auto">Connect MetaMask Wallet</button>
             </div>
-
-
+            <div className="bg-customCactus-400 w-full h-16"></div>
         </div>
     )
 }
