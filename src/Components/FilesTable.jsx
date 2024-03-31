@@ -94,7 +94,7 @@ const FilesTable = ({ files, columns, active, account, contract }) => {
                                         </td>
                                     ))}
                                     {active === 2 ? "" :
-                                        <FileActions file={files[activeFileId]} />}
+                                        <FileActions file={files[activeFileId]} contract={contract} />}
                                 </tr>
                             ))}
                         </tbody>

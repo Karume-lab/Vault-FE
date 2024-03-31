@@ -8,9 +8,9 @@ import fileDownload from 'js-file-download';
 import axios from "axios";
 
 
-const FileActions = ({ file }) => {
+const FileActions = ({ file, contract }) => {
     const [fileOptionsOpen, setFileOptionsOpen] = useState(false);
-    const { id, cid, name, extension } = file;
+    const { cid, name, extension } = file;
 
     const handleDownload = () => {
         axios.get(`https://ipfs.io/ipfs/${cid}`, {
@@ -24,8 +24,12 @@ const FileActions = ({ file }) => {
             });
     }
 
-    const handleMarkAsFavouriteClick = () => {
-        console.log(file)
+    const handleMarkAsFavouriteClick = async () => {
+        try {
+            await contract.toggleFavourite(file.cid)
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     return (
