@@ -1,4 +1,4 @@
-import Favorites from "./Favorites";
+import Favorites from "./Favourites";
 import MyVault from "./MyVault";
 import Recents from "./Recents";
 import Settings from "./Settings";

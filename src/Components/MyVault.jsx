@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import FilesTable from "./FilesTable";
 
 const MyVault = ({ files, account, contract, active }) => {
