@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import logo from "../assets/img/vault-logo.png";
 import key_hole from "../assets/img/key-hole-logo.png";
 import { TERipple } from "tw-elements-react";
@@ -16,6 +16,15 @@ const Navbar = ({ account }) => {
         </div>
         <span className="justify-self-start text-2xl font-bold">VAULT</span>
       </div>
+      {!account ? <ul className="flex space-x-6 text-customCactus-200 font-semibold text-xl">
+        <li>
+          <a href="#services" className="hover:text-gray-300">SERVICES</a>
+        </li>
+        <li>
+          <a href="#features" className="hover:text-gray-300">FEATURES</a>
+        </li>
+      </ul> : null}
+
       <div
         className='flex flex-col items-center justify-center relative'
       >
