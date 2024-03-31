@@ -12,10 +12,6 @@
 - [Background](#background)
 - [What Vault Offers](#what-vault-offers)
 - [Implementation](#implementation)
-  - [Vault Smart Contract (Solidity)](#vault-smart-contract-solidity)
-    - [States](#states)
-    - [Behaviours](#behaviours)
-- [Architecture](#architecture)
 - [Design](#design)
 - [Tech Stack](#tech-stack)
 - [Currently Available Features](#currently-available-features)
@@ -24,7 +20,7 @@
 ## Demo
 
 <video width="640" height="360" controls>
-  <source src="./README_ASSETS/demo.mp4" type="video/mp4">
+  <source src="./demo.mp4" type="video/mp4">
 </video>
 
 ## Introduction
@@ -65,7 +61,9 @@ The frontend is built using ReactJS deployed locally. The backend is deployed lo
 
 Below are sapmles of the dapp. The app consists of two primary containers: the sidebar and the content being displayed. Clicking on the sidebar displays different content on the right side.
 
-![Upload Modal Form](./README_ASSETS/upload-image.png)
+![Landing Page](./README_ASSETS/landing.png)
+![Upload Modal Form](./README_ASSETS/upload.png)
+![A page without any uploaded files](./README_ASSETS/my-vault.png)
 
 ## Tech Stack
 
@@ -102,10 +100,12 @@ Below are sapmles of the dapp. The app consists of two primary containers: the s
 
 6. **Uploading Files with Specific Tags for Faster Retrieval**: Users can assign specific tags to their uploaded files to categorize and organize them. Tags enable faster retrieval of files based on relevant keywords or categories, enhancing the user experience and efficiency of file management.
 
+7. **Searching, Filtering, and Sorting**: This involves enhancing the user experience by implementing functionality that allows users to search for specific files, filter files based on criteria like tags or upload date, and sort files in different orders (e.g., alphabetical, chronological).
+
 
 ## Future Plans
 
-1. **Searching, Filtering, and Sorting**: This involves enhancing the user experience by implementing functionality that allows users to search for specific files, filter files based on criteria like tags or upload date, and sort files in different orders (e.g., alphabetical, chronological).
+
 
 2. **Subscriptions and Freemium Model**: The team plans to introduce subscription-based features using a freemium model. Freemium refers to offering basic services for free while charging for premium features. This could involve different tiers of subscription plans with varying levels of access or features. Limits may be imposed on daily activities like file shares and uploads for users on the free plan.
 
