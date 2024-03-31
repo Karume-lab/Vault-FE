@@ -8,9 +8,9 @@ import fileDownload from 'js-file-download';
 import axios from "axios";
 
 
-const FileActions = ({ file }) => {
+const FileActions = ({ file, contract }) => {
     const [fileOptionsOpen, setFileOptionsOpen] = useState(false);
-    const { id, cid, name, extension } = file;
+    const { cid, name, extension } = file;
 
     const handleDownload = () => {
         axios.get(`https://ipfs.io/ipfs/${cid}`, {
@@ -24,8 +24,12 @@ const FileActions = ({ file }) => {
             });
     }
 
-    const handleMarkAsFavouriteClick = () => {
-        console.log(id)
+    const handleMarkAsFavouriteClick = async () => {
+        try {
+            await contract.toggleFavourite(file.cid)
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     return (
@@ -35,9 +39,9 @@ const FileActions = ({ file }) => {
             </div>
             {fileOptionsOpen && (
                 <div onMouseEnter={() => setFileOptionsOpen(true)} onMouseLeave={() => setFileOptionsOpen(false)} className="font-bold text-lg absolute right-0 z-10 mt-2 p-2 origin-top-right rounded-2xl bg-customCactus-200 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none flex flex-row justify-center gap-1">
-                    <div title="Edit" data-tooltip-target="tooltip-top" data-tooltip-placement="top" className="p-1 rounded-full hover:bg-customCactus-100"><CiEdit /> </div>
+                    {/* <div title="Edit" data-tooltip-target="tooltip-top" data-tooltip-placement="top" className="p-1 rounded-full hover:bg-customCactus-100"><CiEdit /> </div> */}
                     <div title="Add to Favorites" className="p-1 rounded-full hover:bg-customCactus-100" onClick={() => handleMarkAsFavouriteClick()}><MdFavoriteBorder /></div>
-                    <div title="Share" className="p-1 rounded-full hover:bg-customCactus-100"><IoShareSocialOutline /></div>
+                    {/* <div title="Share" className="p-1 rounded-full hover:bg-customCactus-100"><IoShareSocialOutline /></div> */}
                     <div title="Download" className="p-1 rounded-full hover:bg-customCactus-100" onClick={() => handleDownload()}><MdOutlineFileDownload /> </div>
                 </div>
             )}
