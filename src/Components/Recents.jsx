@@ -1,8 +1,7 @@
 import React from "react";
 import FilesTable from "./FilesTable";
 
-const Recents = ({ files }) => {
-
+const Recents = ({ files, account, contract, active }) => {
     const columns = [
         { id: "name", header: "File", accessorKey: "name" },
         {
@@ -20,7 +19,7 @@ const Recents = ({ files }) => {
                 <p className="ml-2 font-bold text-center text-3xl">RECENTS</p>
             </div>
             <div className="border-t border-1 w-11/12 self-center border-customCactus-400"></div>
-            <FilesTable files={files} columns={columns} />
+            <FilesTable files={files} active={active} account={account} contract={contract} columns={columns} />
         </div>
     );
 };

@@ -38,7 +38,6 @@ const FilesTable = ({ files, columns, active, account, contract }) => {
 
     return (
         <div>
-            <div>{active}</div>
             {(files && files.length) ?
                 <>
                     <div className='flex items-center justify-end p-1 gap-1 flex-grow'>
