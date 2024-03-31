@@ -1,6 +1,6 @@
 import React from 'react'
 import FilesTable from "./FilesTable";
-
+import { timestamp2DateTime, tags, getTagName } from "./utils"
 
 const Recents = ({ files, account, contract, active }) => {
     const columns = [
@@ -9,8 +9,9 @@ const Recents = ({ files, account, contract, active }) => {
             id: "dateAccessed",
             header: "Date Accessed",
             accessorKey: "dateAccessed",
+            cell: timestamp => timestamp2DateTime(timestamp)
         },
-        { id: "tag", header: "Tag", accessorKey: "tag" },
+        { id: "tag", header: "Tag", accessorKey: "tag", accessorFn: row => tags[+row] },
         { id: "size", header: "Size", accessorKey: "size" },
     ];
 
