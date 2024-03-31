@@ -54,12 +54,9 @@ const Sidebar = ({ toggleFileUploadModal, setToggleFileUploadModal, active, setA
     setActive(6);
   }
 
-  const handleTrashClick = async () => {
-    setActive(7);
-  }
 
   const handleSettingsClick = async () => {
-    setActive(8);
+    setActive(7);
   }
 
   const handleSignOutClick = async () => {
@@ -80,7 +77,6 @@ const Sidebar = ({ toggleFileUploadModal, setToggleFileUploadModal, active, setA
         <TabButton handleClick={handleTagsClick} icon={<MdOutlineBookmarkBorder />} text="Tags" active={active === 5} />
         <div className='border-t-2 w-3/4 self-center m-1'></div>
         <TabButton handleClick={handleStorageClick} icon={<GrVirtualStorage />} text="Storage" active={active === 6} />
-        <TabButton handleClick={handleTrashClick} icon={<FaRegTrashAlt />} text="Trash" active={active === 7} />
       </div>
       <div className='flex flex-col'>
         <TabButton handleClick={handleSettingsClick} icon={<LuSettings />} text="Settings" active={active === 8} />

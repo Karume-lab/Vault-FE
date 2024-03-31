@@ -13,6 +13,7 @@ import { LuChevronFirst, LuChevronLast } from "react-icons/lu";
 import { MdNavigateNext } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
 import { IoSearch } from "react-icons/io5";
+import ShareModal from './ShareModal';
 
 const FilesTable = ({ files, columns, active }) => {
     // files = d;
@@ -49,6 +50,7 @@ const FilesTable = ({ files, columns, active }) => {
                             onChange={(e) => setFiltering(e.target.value)}
                         />
                     </div>
+                    <ShareModal file={files[0]} />
                     <table className='table-auto w-full max-h-full'>
                         <thead className=''>
                             {table.getHeaderGroups().map((headerGroup) => (
