@@ -25,7 +25,7 @@ const FileActions = ({ file }) => {
     }
 
     const handleMarkAsFavouriteClick = () => {
-        console.log(id)
+        console.log(file)
     }
 
     return (
