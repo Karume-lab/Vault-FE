@@ -62,7 +62,7 @@ The frontend is built using ReactJS deployed locally. The backend is deployed lo
 Below are sapmles of the dapp. The app consists of two primary containers: the sidebar and the content being displayed. Clicking on the sidebar displays different content on the right side.
 
 ![Landing Page](./README_ASSETS/landing.png)
-![Upload Modal Form](./README_ASSETS/upload.png)
+![Upload Modal Form](./README_ASSETS/upload-file.png)
 ![A page without any uploaded files](./README_ASSETS/my-vault.png)
 
 ## Tech Stack
