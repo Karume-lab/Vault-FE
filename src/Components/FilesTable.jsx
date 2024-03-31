@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
     flexRender,
     getCoreRowModel,
@@ -40,15 +40,17 @@ const FilesTable = ({ files, columns, active, contract }) => {
         <div>
             {(files && files.length) ?
                 <>
-                    <div className='flex items-center justify-end p-1 gap-1 flex-grow'>
-                        <IoSearch />
-                        <input
-                            className='h-7 rounded-lg  bg-customCactus-200 border-customCactus-400 focus:outline-none focus:ring-2 focus:ring-customCactus-400 w-96 sm:w-60 '
-                            type="text"
-                            placeholder='Search'
-                            value={filtering}
-                            onChange={(e) => setFiltering(e.target.value)}
-                        />
+                    <div className='flex items-center justify-center p-1 gap-1 flex-grow'>
+                        <div className='bg-customCactus-200 flex items-center p-2 rounded-lg focus:ring-22 focus:ring-customCactus-400 text-xl gap-2'>
+                            <IoSearch />
+                            <input
+                                className='h-7 rounded-lg bg-customCactus-200  focus:outline-none focus:ring-none w-96 sm:w-60 '
+                                type="text"
+                                placeholder='Search'
+                                value={filtering}
+                                onChange={(e) => setFiltering(e.target.value)}
+                            />
+                        </div>
                     </div>
                     <table className='table-auto w-full max-h-full'>
                         <thead className=''>

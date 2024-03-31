@@ -29,7 +29,7 @@ const Tags = ({ files, account, contract }) => {
                 {tags.map(tag => (
                     <button
                         key={tag}
-                        className={`flex items-center text-xl hover:bg-customCactus-300 rounded-xl font-bold p-2 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-20  duration-300 mt-3 ${
+                        className={`flex items-center text-md hover:bg-customCactus-300 rounded-xl font-normal mb-4 p-2 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-20  duration-300 mt-3 ${
                             activeTab === tag ? 'bg-customCactus-200 text-customCactus-800' : 'bg-customCactus-400 text-customCactus-200'
                         }`}
                         onClick={() => handleTabClick(tag)}

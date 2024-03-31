@@ -2,18 +2,7 @@ import React from "react";
 import FilesTable from "./FilesTable";
 
 const MyVault = ({ files, account, contract, active }) => {
-    const tags = [
-        "OTHER", "EDUCATION", "HEALTH", "FINANCE", "BUSINESS", "FAMILY", "RANDOM"
-    ];
-    const timestamp2DateTime = (timestamp) => {
-        let date;
-        if (timestamp.toString() === "0") {
-            date = null;
-        } else {
-            date = new Date(timestamp * 1000).toUTCString();
-        }
-        return date;
-    };
+
     const columns = [
         { id: "name", header: "File", accessorKey: "name" },
         {
