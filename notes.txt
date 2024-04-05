@@ -92,3 +92,34 @@ theme:
 # fix overflow
 # table fix
 
+
+
+
+
+# MEGA HACKATHON
+center rotating logo well
+
+landing page:
+    contract title and body color
+    navbar:
+        sticking navbar
+        change the account to display differently on various screens
+        logo
+        about us
+        features
+        services offered
+        contact us
+    hero section:
+        rotating logo
+        tagline
+        cta -> connect wallet address
+    about us
+    features
+    services offered
+    contact us
+
+sidebar:
+    upload file
+    
+    settings
+    signout
