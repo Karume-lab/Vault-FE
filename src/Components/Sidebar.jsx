@@ -15,7 +15,7 @@ const Sidebar = ({ toggleFileUploadModal, setToggleFileUploadModal, active, setA
     setActive(1);
   }
 
-  const handleShareClick = async () => {
+  const handleSharedWithMeClick = async () => {
     setActive(2);
   }
 
@@ -57,18 +57,18 @@ const Sidebar = ({ toggleFileUploadModal, setToggleFileUploadModal, active, setA
         <TabButton handleClick={() => setToggleFileUploadModal(!toggleFileUploadModal)} icon={<LuUploadCloud />} text="Upload File" active={active === null} />
         <div className='border-t-2 w-3/4 self-center m-1'></div>
         <TabButton handleClick={handleMyVaultClick} icon={<PiVaultBold />} text="My Vault" active={active === 1} />
-        <TabButton handleClick={handleShareClick} icon={<IoShareSocialOutline />} text="Shared with me" active={active === 2} />
+        <TabButton handleClick={handleSharedWithMeClick} icon={<IoShareSocialOutline />} text="Shared with me" active={active === 2} />
         <div className='border-t-2 w-3/4 self-center m-1'></div>
         <TabButton handleClick={handleRecentsClick} icon={<FaRegClock />} text="Recents" active={active === 3} />
         <TabButton handleClick={handleFavoritesClick} icon={<MdFavoriteBorder />} text="Favorites" active={active === 4} />
         <TabButton handleClick={handleTagsClick} icon={<MdOutlineBookmarkBorder />} text="Tags" active={active === 5} />
         <div className='border-t-2 w-3/4 self-center m-1'></div>
         <TabButton handleClick={handleStorageClick} icon={<GrVirtualStorage />} text="Storage" active={active === 6} />
-        <TabButton handleClick={handleArchivedClick} icon={<PiFoldersBold />} text="Archived" active={active === 6} />
-        <TabButton handleClick={handleTrashClick} icon={<FaRegTrashAlt />} text="Trash" active={active === 6} />
+        <TabButton handleClick={handleArchivedClick} icon={<PiFoldersBold />} text="Archived" active={active === 7} />
+        <TabButton handleClick={handleTrashClick} icon={<FaRegTrashAlt />} text="Trash" active={active === 8} />
       </div>
       <div className='flex flex-col'>
-        <TabButton handleClick={handleSettingsClick} icon={<LuSettings />} text="Settings" active={active === 8} />
+        <TabButton handleClick={handleSettingsClick} icon={<LuSettings />} text="Settings" active={active === 9} />
         <SignOut provider={provider} />
       </div>
     </div>
