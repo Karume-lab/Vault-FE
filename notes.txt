@@ -121,5 +121,13 @@ landing page:
 sidebar:
     upload file
     
+    
     settings
     signout
+    add content for the new bodies i.e style them
+
+make liked files to have red filled like button
+make background dimmer as oppossed to blurring
+
+
+"one", "example_document", "This is an example PDF document", true, 1024, ".pdf", 1
