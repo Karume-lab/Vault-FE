@@ -66,7 +66,7 @@ const App = () => {
         {account ?
           <div className=' flex flex-1 flex-row p-2 gap-2 '>
             <div className=' w-60 '>
-              <Sidebar provider={provider} files={files} setFiles={setFiles} account={account} contract={contract} toggleFileUploadModal={toggleFileUploadModal} setToggleFileUploadModal={setToggleFileUploadModal} active={active} setActive={setActive} toggleShareModal={toggleShareModal} setToggleShareModal={setToggleShareModal} />
+              <Sidebar provider={provider} files={files} setFiles={setFiles} account={account} setAccount={setAccount} contract={contract} toggleFileUploadModal={toggleFileUploadModal} setToggleFileUploadModal={setToggleFileUploadModal} active={active} setActive={setActive} toggleShareModal={toggleShareModal} setToggleShareModal={setToggleShareModal} />
             </div>
             <div className='flex-1 relative'>
               <UploadModal toggleFileUploadModal={toggleFileUploadModal} setToggleFileUploadModal={setToggleFileUploadModal} account={account} contract={contract} provider={provider} />

@@ -1,9 +1,9 @@
 import React from 'react';
 import { BiLogOut } from 'react-icons/bi';
 
-const SignOut = ({ provider }) => {
+const SignOut = ({ setAccount }) => {
     const handleSignOut = async () => {
-
+        setAccount(null);
     };
 
     return (
