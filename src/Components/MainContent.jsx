@@ -2,8 +2,9 @@ import Favorites from "./Favourites";
 import MyVault from "./MyVault";
 import Recents from "./Recents";
 import Settings from "./Settings";
-import SignOut from "./SignOut";
 import Storage from "./Storage";
+import Trash from "./Trash";
+import Archived from "./Archived";
 import Tags from "./Tags";
 import SharedWithMe from "./SharedWithMe";
 import { useSnackbar } from "notistack";
@@ -33,13 +34,14 @@ const MainContent = ({ active, account, contract, files, setFiles }) => {
 
     const components = {
         1: <MyVault files={files} active={active} account={account} contract={contract} />,
-        // 2: <SharedWithMe files={files} active={active} account={account} contract={contract} />,
+        2: <SharedWithMe files={files} active={active} account={account} contract={contract} />,
         3: <Recents files={files} active={active} account={account} contract={contract} />,
         4: <Favorites files={files} active={active} account={account} contract={contract} />,
         5: <Tags files={files} active={active} account={account} contract={contract} />,
         6: <Storage files={files} active={active} account={account} contract={contract} />,
-        7: <Settings files={files} active={active} account={account} contract={contract} />,
-        8: <SignOut files={files} active={active} account={account} contract={contract} />,
+        7: <Archived files={files} active={active} account={account} contract={contract} />,
+        8: <Trash files={files} active={active} account={account} contract={contract} />,
+        9: <Settings files={files} active={active} account={account} contract={contract} />,
     };
 
     return (

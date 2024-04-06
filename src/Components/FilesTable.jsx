@@ -14,7 +14,7 @@ import { MdNavigateNext } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
 import { IoSearch } from "react-icons/io5";
 import nofile from "../assets/img/empty.png";
-// import testFiles from "./dummyFiles.json";
+import testFiles from "./dummyFiles.json";
 
 const FilesTable = ({ files, columns, active, contract }) => {
     // files = testFiles;
