@@ -15,7 +15,7 @@ import { MdNavigateNext, MdPeopleAlt } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
 import { IoSearch } from "react-icons/io5";
 import nofile from "../assets/img/empty.png";
-import testFiles from "./MOCK_FILES.json";
+import testFiles from "./MOCK_DATA/MOCK_FILES.json";
 import EditModal from './EditModal';
 
 const FilesTable = ({ files, columns, active, contract }) => {
