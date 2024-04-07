@@ -9,6 +9,7 @@ import {
     useReactTable,
 } from "@tanstack/react-table";
 import FileActions from "./FileActions"
+import ShareModal from "./ShareModal";
 import { LuChevronFirst, LuChevronLast } from "react-icons/lu";
 import { MdNavigateNext } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
@@ -19,7 +20,6 @@ import testFiles from "./dummyFiles.json";
 const FilesTable = ({ files, columns, active, contract }) => {
     // files = testFiles;
     const data = useMemo(() => files, [files]);
-
     const [sorting, setSorting] = useState([]);
     const [filtering, setFiltering] = useState("");
     const [activeFileId, setActiveFileId] = useState(0)
@@ -37,10 +37,12 @@ const FilesTable = ({ files, columns, active, contract }) => {
         onSortingChange: setSorting,
         onGlobalFilterChange: setFiltering,
     });
+    useEffect(() => console.log(activeFileId))
 
     return (
         <div>
-            {(files && files.length) ?
+            <ShareModal file={files[0]} contract={contract} />
+            {(files && files?.length) ?
                 <>
                     <div className='flex items-center justify-center p-1 gap-1 flex-grow'>
                         <div className='bg-customCactus-200 flex items-center p-2 rounded-lg focus:ring-22 focus:ring-customCactus-400 text-xl gap-2'>
