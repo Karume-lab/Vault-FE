@@ -23,8 +23,10 @@ const ShareModal = ({ file, contract }) => {
     }, [contract, file?.cid]);
 
     useEffect(() => {
-        // setAccessors(testAccessors);
-    }, []); // This useEffect will run only once on component mount
+        if (process.env.REACT_APP_IS_FRONTEND === "1") {
+            setAccessors(testAccessors);
+        }
+    }, []);
 
     return (
         <div className='bg-customCactus-100 rounded-lg p-2 flex flex-col gap-3 border-2 border-customCactus-400'>

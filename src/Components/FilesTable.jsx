@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import {
     flexRender,
@@ -19,14 +19,15 @@ import EditModal from './EditModal';
 import testFiles from "../MOCK_DATA/MOCK_FILES.json";
 
 const FilesTable = ({ files, columns, active, contract }) => {
-    // files = testFiles;
+    if (process.env.REACT_APP_IS_FRONTEND === "1") {
+        files = testFiles;
+    }
     const data = useMemo(() => files, [files]);
     const [sorting, setSorting] = useState([]);
     const [filtering, setFiltering] = useState("");
     const [activeFileId, setActiveFileId] = useState(0)
     const [toggleShareModal, setToggleShareModal] = useState(false);
     const [toggleEditModal, setToggleEditModal] = useState(false);
-
     const table = useReactTable({
         data,
         columns,
