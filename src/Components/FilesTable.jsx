@@ -16,6 +16,7 @@ import { GrFormPrevious } from "react-icons/gr";
 import { IoSearch } from "react-icons/io5";
 import nofile from "../assets/img/empty.png";
 import testFiles from "./MOCK_FILES.json";
+import EditModal from './EditModal';
 
 const FilesTable = ({ files, columns, active, contract }) => {
     files = testFiles;
@@ -24,6 +25,7 @@ const FilesTable = ({ files, columns, active, contract }) => {
     const [filtering, setFiltering] = useState("");
     const [activeFileId, setActiveFileId] = useState(0)
     const [toggleShareModal, setToggleShareModal] = useState(false);
+    const [toggleEditModal, setToggleEditModal] = useState(false);
 
     const table = useReactTable({
         data,
@@ -50,6 +52,7 @@ const FilesTable = ({ files, columns, active, contract }) => {
             }
             {(files && files?.length) ?
                 <>
+                <EditModal toggleEditModal={toggleEditModal} setToggleEditModal={setToggleEditModal}  />
                     <div className='flex items-center justify-center p-1 gap-1 flex-grow'>
                         <div className='bg-customCactus-200 flex items-center p-2 rounded-lg focus:ring-22 focus:ring-customCactus-400 text-xl gap-2'>
                             <IoSearch />
@@ -97,7 +100,7 @@ const FilesTable = ({ files, columns, active, contract }) => {
                                     key={row.id}
                                     id={`${row.id}`}
                                     className='border-b border-customCactus-400 hover:bg-customCactus-200 h-12 w-full'
-                                    onClick={(e) => setActiveFileId(e.currentTarget.id)}
+                                    onclick={(e) => setActiveFileId(e.currentTarget.id)}
                                 >
                                     {row.getVisibleCells().map((cell, index) => (
                                         <React.Fragment key={cell.id}>
@@ -115,7 +118,7 @@ const FilesTable = ({ files, columns, active, contract }) => {
                                         </React.Fragment>
                                     ))}
                                     {active === 2 ? null :
-                                        <FileActions file={files[activeFileId]} contract={contract} setToggleShareModal={setToggleShareModal} />}
+                                        <FileActions file={files[activeFileId]} contract={contract} setToggleShareModal={setToggleShareModal} setToggleEditModal={setToggleEditModal} />}
                                 </tr>
                             ))}
                         </tbody>

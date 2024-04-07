@@ -7,12 +7,15 @@ import { ethers } from "ethers"
 import abi from "./abi/Vault.json"
 import { useSnackbar } from 'notistack';
 import Landing from './Components/Landing';
+// import EditModal from './Components/EditModal';
+
 
 const App = () => {
   const [account, setAccount] = useState("");
   const [contract, setContract] = useState(null);
   const [provider, setProvider] = useState(null);
   const [toggleFileUploadModal, setToggleFileUploadModal] = useState(false);
+  // const [toggleEditModal, setToggleEditModal] = useState(false);
   const [files, setFiles] = useState([]);
   const { enqueueSnackbar } = useSnackbar();
   const [active, setActive] = useState(1);
@@ -66,6 +69,7 @@ const App = () => {
             </div>
             <div className='flex-1 relative overflow-auto'>
               <UploadModal toggleFileUploadModal={toggleFileUploadModal} setToggleFileUploadModal={setToggleFileUploadModal} account={account} contract={contract} provider={provider} />
+              {/* <EditModal toggleEditModal={toggleEditModal} setToggleEditModal={setToggleEditModal}  /> */}
               <MainContent files={files} setFiles={setFiles} active={active} contract={contract} account={account} />
             </div>
           </div>

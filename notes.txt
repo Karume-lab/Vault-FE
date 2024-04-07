@@ -37,12 +37,12 @@ favourites(myvault)
 
 
 #add actions:
-    share
+    # share
     delete
-    edit
-    like
-    download
-    --add tooltips to them. 
+    # edit
+    # like
+    # download
+    # add tooltips to them. 
 
 
 share modal:
@@ -126,7 +126,7 @@ sidebar:
     signout
     add content for the new bodies i.e style them
 
-make liked files to have red filled like button
+# make liked files to have red filled like button
 make background dimmer as oppossed to blurring
 
 
@@ -135,6 +135,14 @@ make background dimmer as oppossed to blurring
 
 # NOW
 edit modal
+add delete file action
+confirm delete modal
+
 make share a modal
 closing share modal
-confirm delete modal
+archived 
+trash
+storage
+
+
+
