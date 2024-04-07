@@ -17,7 +17,7 @@ const MainContent = ({ active, account, contract, files, setFiles }) => {
     useEffect(() => {
         const getdata = async () => {
             try {
-                const dataArray = await contract.getFiles(account);
+                const dataArray = await contract.getFiles();
                 if (dataArray && dataArray.length > 0) {
                     setFiles(dataArray);
                     enqueueSnackbar("Fetched files successfully", { variant: "success" });

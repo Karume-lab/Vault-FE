@@ -70,7 +70,7 @@ const App = () => {
             </div>
             <div className='flex-1 relative overflow-auto'>
               <UploadModal toggleFileUploadModal={toggleFileUploadModal} setToggleFileUploadModal={setToggleFileUploadModal} account={account} contract={contract} provider={provider} />
-              <MainContent files={files} setFiles={setFiles} active={active} contrmmact={contract} account={account} />
+              <MainContent files={files} setFiles={setFiles} active={active} contract={contract} account={account} />
             </div>
           </div>
           :
