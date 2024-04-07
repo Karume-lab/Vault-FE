@@ -1,11 +1,25 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react';
 
 const ShareModal = ({ file, contract }) => {
-    const [receiver, setReceiver] = useState("");
+    const [receiver, setReceiver] = useState('');
+    const [accessors, setAccessors] = useState([]);
 
     const handleShareClick = async () => {
-        await contract.shareFile("QmbyJCKhNpQvaTsxVdatVcawZCpkFknfB9ac5pjsK7zrNx", receiver)
-    }
+        await contract.shareFile('QmbyJCKhNpQvaTsxVdatVcawZCpkFknfB9ac5pjsK7zrNx', receiver);
+        setReceiver('');
+    };
+
+    const handleRemoveClick = async (index) => {
+        await contract.unshareFile("QmbyJCKhNpQvaTsxVdatVcawZCpkFknfB9ac5pjsK7zrNx", accessors[index]);
+    };
+
+    useEffect(() => {
+        const getAccessors = async () => {
+            const accessors = await contract.getFileAccessors('QmbyJCKhNpQvaTsxVdatVcawZCpkFknfB9ac5pjsK7zrNx');
+            setAccessors(accessors);
+        };
+        getAccessors();
+    }, [contract]);
 
     return (
         <div className='bg-customCactus-100 rounded-lg p-2 flex flex-col gap-3 border-2 border-customCactus-400'>
@@ -14,15 +28,23 @@ const ShareModal = ({ file, contract }) => {
                 <p>Enter the wallet address of the Receiver</p>
                 <input
                     onChange={(e) => setReceiver(e.currentTarget.value)}
-                    type="text"
+                    type='text'
                     placeholder="Receiver's address"
                     className='rounded-md'
                     value={receiver}
                 />
             </div>
-            <button onClick={handleShareClick} className='bg-customCactus-200 hover:bg-customCactus-300 border-2 border-customCactus-400 shadow-sm shadow-customCactus-400  rounded-md p-1'>Share</button>
+            <ul>
+                {accessors.map((accessor, index) => (
+                    <li key={index}>
+                        {accessor}
+                        <button onClick={() => handleRemoveClick(index)}>Remove</button>
+                    </li>
+                ))}
+            </ul>
+            <button onClick={handleShareClick} className='bg-customCactus-200 hover:bg-customCactus-300 border-2 border-customCactus-400 shadow-sm shadow-customCactus-400 rounded-md p-1'>Share</button>
         </div>
-    )
-}
+    );
+};
 
-export default ShareModal
+export default ShareModal;
