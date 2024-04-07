@@ -26,8 +26,9 @@ const FilesTable = ({ files, columns, active, contract }) => {
     const [sorting, setSorting] = useState([]);
     const [filtering, setFiltering] = useState("");
     const [activeFileId, setActiveFileId] = useState(0)
-    const [toggleShareModal, setToggleShareModal] = useState(false);
     const [toggleEditModal, setToggleEditModal] = useState(false);
+    const [toggleShareModal, setToggleShareModal] = useState(false);
+
     const table = useReactTable({
         data,
         columns,
@@ -45,11 +46,9 @@ const FilesTable = ({ files, columns, active, contract }) => {
 
     return (
         <div>
-            {
-                toggleShareModal ?
-                    <ShareModal file={files[activeFileId]} contract={contract} />
-                    :
-                    null
+            {toggleShareModal ?
+                <ShareModal file={files[activeFileId]} contract={contract} toggleShareModal={toggleShareModal} setToggleShareModal={setToggleShareModal} />
+                : null
             }
             <EditModal file={files[activeFileId]} toggleEditModal={toggleEditModal} setToggleEditModal={setToggleEditModal} contract={contract} />
             {(files && files?.length) ?

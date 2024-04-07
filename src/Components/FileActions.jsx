@@ -8,7 +8,7 @@ import fileDownload from 'js-file-download';
 import axios from "axios";
 
 
-const FileActions = ({ file, contract, setToggleShareModal, setToggleEditModal, toggleEditModal}) => {
+const FileActions = ({ file, contract, setToggleShareModal, toggleShareModal,setToggleEditModal, toggleEditModal}) => {
     const [fileOptionsOpen, setFileOptionsOpen] = useState(false);
 
     const { cid, name, extension } = file;
@@ -33,12 +33,12 @@ const FileActions = ({ file, contract, setToggleShareModal, setToggleEditModal, 
         }
     }
 
-    const handleShareClick = async () => {
+    const handleShareClick = () => {
         setToggleShareModal(true);
     }
 
-    const handleEditClick = async () => {
-        setToggleEditModal(!toggleEditModal);
+    const handleEditClick = () => {
+        setToggleEditModal(true);
     }
 
     return (
