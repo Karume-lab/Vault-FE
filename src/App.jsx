@@ -18,9 +18,6 @@ const App = () => {
   const { enqueueSnackbar } = useSnackbar();
   const [active, setActive] = useState(1);
 
-
-
-
   useEffect(() => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const contractAddress = process.env.REACT_APP_CONTRACT_ADDRESS;

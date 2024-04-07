@@ -23,7 +23,7 @@ const FileActions = ({ file, contract }) => {
             })
             .catch((error) => {
                 console.error('Error downloading file:', error);
-            });
+        });
     }
 
     const handleMarkAsFavouriteClick = async () => {
