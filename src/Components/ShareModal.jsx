@@ -23,7 +23,7 @@ const ShareModal = ({ file, contract }) => {
     }, [contract, file?.cid]);
 
     useEffect(() => {
-        setAccessors(testAccessors);
+        // setAccessors(testAccessors);
     }, []); // This useEffect will run only once on component mount
 
     return (

@@ -15,11 +15,11 @@ import { MdNavigateNext, MdPeopleAlt } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
 import { IoSearch } from "react-icons/io5";
 import nofile from "../assets/img/empty.png";
-import testFiles from "../MOCK_DATA/MOCK_FILES.json";
 import EditModal from './EditModal';
+import testFiles from "../MOCK_DATA/MOCK_FILES.json";
 
 const FilesTable = ({ files, columns, active, contract }) => {
-    files = testFiles;
+    // files = testFiles;
     const data = useMemo(() => files, [files]);
     const [sorting, setSorting] = useState([]);
     const [filtering, setFiltering] = useState("");
