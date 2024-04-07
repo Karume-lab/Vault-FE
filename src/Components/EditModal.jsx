@@ -14,10 +14,11 @@ const EditModal = ({ file, toggleEditModal, setToggleEditModal, contract }) => {
         if (e.target.id === "editFileModalContainer") setToggleEditModal(!toggleEditModal);
     }
 
-    const handleSave = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setToggleEditModal(false);
         await contract.editFile(file?.cid, fileName, fileDescription, isFavourite, isArchived, tag);
     }
-
 
     if (!toggleEditModal) return null;
 
@@ -25,7 +26,7 @@ const EditModal = ({ file, toggleEditModal, setToggleEditModal, contract }) => {
         <div>
             <div id="editFileModalContainer" onClick={handleClose} className="bg-customCactus-400 z-50 bg-opacity-0 backdrop-blur-sm h-full w-full flex justify-center items-center absolute top-0">
                 <div className="min-w-1/2 h-88 w-2/3 bg-customCactus-300 text-white rounded-lg p-2 flex flex-col">
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <div className="flex flex-row border-b-2 justify-between p-2">
                             <div className="flex flex-row align-middle ">
                                 <p className=" text-lg font-semibold">Edit File</p>
@@ -57,7 +58,7 @@ const EditModal = ({ file, toggleEditModal, setToggleEditModal, contract }) => {
                                     </button>
                                 </TERipple>
                                 <TERipple>
-                                    <button onClick={handleSave}
+                                    <button
                                         className="border-2 border-customCactus-100  shadow-xl rounded-lg p-1 bg-customCactus-400 hover:bg-customCactus-300"
                                     >
                                         Save
