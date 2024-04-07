@@ -5,7 +5,7 @@ import axios from "axios";
 import { TERipple } from "tw-elements-react";
 
 
-const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract, account, provider }) => {
+const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract, account }) => {
     const [file, setFile] = useState(null);
     const [fileName, setFileName] = useState("No file selected");
     const [tag, setTag] = useState(0);
@@ -34,7 +34,15 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
                             },
                         }
                     );
-                    contract.uploadFile(account, fileName, fileDescription, formatFileSize(fileSize), fileExtension, isFavourite, tag, resFile.data.IpfsHash);
+                    contract.uploadFile(
+                        resFile.data.IpfsHash,
+                        fileName,
+                        fileDescription,
+                        isFavourite,
+                        fileSize,
+                        fileExtension,
+                        tag
+                    );
                     enqueueSnackbar('Successfully Uploaded file', { variant: 'success' });
                     setFileName("No file selected");
                     setFile(null);
@@ -74,18 +82,6 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
         if (e.target.id === "uploadFileModalContainer") setToggleFileUploadModal(!toggleFileUploadModal);
     }
     if (!toggleFileUploadModal) return null;
-
-    const formatFileSize = (bytes) => {
-        if (bytes < 1024) {
-            return bytes + " bytes";
-        } else if (bytes < 1024 * 1024) {
-            return (bytes / 1024).toFixed(2) + " KB";
-        } else if (bytes < 1024 * 1024 * 1024) {
-            return (bytes / (1024 * 1024)).toFixed(2) + " MB";
-        } else {
-            return (bytes / (1024 * 1024 * 1024)).toFixed(2) + " GB";
-        }
-    };
 
     return (
         <div id="uploadFileModalContainer" onClick={handleClose} className="bg-customCactus-400 z-50 bg-opacity-0 backdrop-blur-sm h-full w-full flex justify-center items-center absolute top-0">
