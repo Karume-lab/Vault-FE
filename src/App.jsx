@@ -64,9 +64,9 @@ const App = () => {
       <div className="flex flex-col w-screen h-screen bg-customCactus-200">
         <Navbar account={account} />
         {account ?
-          <div className=' flex flex-1 flex-row p-2 gap-2 overflow-auto'>
-            <div className=' w-60  '>
-              <Sidebar provider={provider} files={files} setFiles={setFiles} account={account} contract={contract} toggleFileUploadModal={toggleFileUploadModal} setToggleFileUploadModal={setToggleFileUploadModal} active={active} setActive={setActive} toggleShareModal={toggleShareModal} setToggleShareModal={setToggleShareModal} />
+          <div className='flex flex-1 flex-row p-2 gap-2 overflow-auto'>
+            <div className='w-60'>
+              <Sidebar provider={provider} files={files} setFiles={setFiles} account={account} setAccount={setAccount} contract={contract} toggleFileUploadModal={toggleFileUploadModal} setToggleFileUploadModal={setToggleFileUploadModal} active={active} setActive={setActive} toggleShareModal={toggleShareModal} setToggleShareModal={setToggleShareModal} />
             </div>
             <div className='flex-1 relative overflow-auto'>
               <UploadModal toggleFileUploadModal={toggleFileUploadModal} setToggleFileUploadModal={setToggleFileUploadModal} account={account} contract={contract} provider={provider} />

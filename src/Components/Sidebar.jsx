@@ -9,7 +9,7 @@ import { IoShareSocialOutline } from "react-icons/io5";
 import { FaRegTrashAlt } from "react-icons/fa";
 import SignOut from './SignOut';
 
-const Sidebar = ({ toggleFileUploadModal, setToggleFileUploadModal, active, setActive, provider }) => {
+const Sidebar = ({ toggleFileUploadModal, setToggleFileUploadModal, active, setActive, provider, setAccount }) => {
 
   const handleMyVaultClick = async () => {
     setActive(1);
@@ -69,7 +69,7 @@ const Sidebar = ({ toggleFileUploadModal, setToggleFileUploadModal, active, setA
       </div>
       <div className='flex flex-col'>
         <TabButton handleClick={handleSettingsClick} icon={<LuSettings />} text="Settings" active={active === 9} />
-        <SignOut provider={provider} />
+        <SignOut setAccount={setAccount} />
       </div>
     </div>
   );
