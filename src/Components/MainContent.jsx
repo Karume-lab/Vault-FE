@@ -45,10 +45,10 @@ const MainContent = ({ active, account, contract, files, setFiles }) => {
     };
 
     return (
-        <>
+        <div className="max-h-full overflow-y-auto">
             {components[active]}
 
-        </>
+        </div>
     );
 }
 
