@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import testAccessors from "./MOCK_DATA/MOCK_ACCESSORS.json";
+import testAccessors from "../MOCK_DATA/MOCK_ACCESSORS.json";
 
 const ShareModal = ({ file, contract }) => {
     const [receiver, setReceiver] = useState('');
