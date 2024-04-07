@@ -23,6 +23,8 @@ const FilesTable = ({ files, columns, active, contract }) => {
     const [sorting, setSorting] = useState([]);
     const [filtering, setFiltering] = useState("");
     const [activeFileId, setActiveFileId] = useState(0)
+    const [toggleShareModal, setToggleShareModal] = useState(false);
+
     const table = useReactTable({
         data,
         columns,
@@ -37,11 +39,15 @@ const FilesTable = ({ files, columns, active, contract }) => {
         onSortingChange: setSorting,
         onGlobalFilterChange: setFiltering,
     });
-    useEffect(() => console.log(activeFileId))
 
     return (
         <div>
-            <ShareModal file={files[0]} contract={contract} />
+            {
+                toggleShareModal ?
+                    <ShareModal file={files[activeFileId]} contract={contract} />
+                    :
+                    null
+            }
             {(files && files?.length) ?
                 <>
                     <div className='flex items-center justify-center p-1 gap-1 flex-grow'>
@@ -99,7 +105,7 @@ const FilesTable = ({ files, columns, active, contract }) => {
                                         </td>
                                     ))}
                                     {active === 2 ? "" :
-                                        <FileActions file={files[activeFileId]} contract={contract} />}
+                                        <FileActions file={files[activeFileId]} contract={contract} setToggleShareModal={setToggleShareModal} />}
                                 </tr>
                             ))}
                         </tbody>

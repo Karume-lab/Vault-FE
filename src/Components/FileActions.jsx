@@ -8,8 +8,9 @@ import fileDownload from 'js-file-download';
 import axios from "axios";
 
 
-const FileActions = ({ file, contract }) => {
+const FileActions = ({ file, contract, setToggleShareModal }) => {
     const [fileOptionsOpen, setFileOptionsOpen] = useState(false);
+
     const { cid, name, extension } = file;
 
     const handleDownload = () => {
@@ -21,7 +22,7 @@ const FileActions = ({ file, contract }) => {
             })
             .catch((error) => {
                 console.error('Error downloading file:', error);
-        });
+            });
     }
 
     const handleMarkAsFavouriteClick = async () => {
@@ -32,7 +33,9 @@ const FileActions = ({ file, contract }) => {
         }
     }
 
-    // const 
+    const handleShareClick = async () => {
+        setToggleShareModal(true);
+    }
 
     return (
         <td className="relative">
@@ -45,7 +48,7 @@ const FileActions = ({ file, contract }) => {
                     <div title="Add to Favorites" className="p-1 rounded-full hover:bg-customCactus-100" onClick={() => handleMarkAsFavouriteClick()}>
                         {file?.isFavourite ? <MdFavorite /> : <MdFavoriteBorder />}
                     </div>
-                    <div title="Share" className="p-1 rounded-full hover:bg-customCactus-100"><IoShareSocialOutline /></div>
+                    <div title="Share" className="p-1 rounded-full hover:bg-customCactus-100" onClick={handleShareClick}><IoShareSocialOutline /></div>
                     <div title="Download" className="p-1 rounded-full hover:bg-customCactus-100" onClick={() => handleDownload()}><MdOutlineFileDownload /> </div>
                 </div>
             )}

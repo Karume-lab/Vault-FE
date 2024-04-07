@@ -5,21 +5,23 @@ const ShareModal = ({ file, contract }) => {
     const [accessors, setAccessors] = useState([]);
 
     const handleShareClick = async () => {
-        await contract.shareFile('QmbyJCKhNpQvaTsxVdatVcawZCpkFknfB9ac5pjsK7zrNx', receiver);
+        await contract.shareFile(file?.cid, receiver);
         setReceiver('');
     };
 
     const handleRemoveClick = async (index) => {
-        await contract.unshareFile("QmbyJCKhNpQvaTsxVdatVcawZCpkFknfB9ac5pjsK7zrNx", accessors[index]);
+        await contract.unshareFile(file?.cid, accessors[index]);
     };
 
     useEffect(() => {
         const getAccessors = async () => {
-            const accessors = await contract.getFileAccessors('QmbyJCKhNpQvaTsxVdatVcawZCpkFknfB9ac5pjsK7zrNx');
+            const accessors = await contract.getFileAccessors(file?.cid);
             setAccessors(accessors);
         };
         getAccessors();
-    }, [contract]);
+    }, [contract, file?.cid]);
+
+
 
     return (
         <div className='bg-customCactus-100 rounded-lg p-2 flex flex-col gap-3 border-2 border-customCactus-400'>

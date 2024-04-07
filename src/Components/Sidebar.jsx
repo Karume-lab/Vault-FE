@@ -9,7 +9,7 @@ import { IoShareSocialOutline } from "react-icons/io5";
 import { FaRegTrashAlt } from "react-icons/fa";
 import SignOut from './SignOut';
 
-const Sidebar = ({ toggleFileUploadModal, setToggleFileUploadModal, active, setActive, provider, setAccount }) => {
+const Sidebar = ({ toggleFileUploadModal, setToggleFileUploadModal, active, setActive, setAccount }) => {
 
   const handleMyVaultClick = async () => {
     setActive(1);
