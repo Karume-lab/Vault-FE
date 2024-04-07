@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import FilesTable from "./FilesTable";
 import { timestamp2DateTime, tags, getTagName } from "./utils"
 
@@ -13,8 +13,6 @@ const Recents = ({ files, account, contract, active }) => {
         { id: "tag", header: "Tag", accessorKey: "tag"},
         { id: "size", header: "Size", accessorKey: "size" },
     ];
-
-    useEffect(() => console.log(files, active, account, contract, columns))
 
     return (
         <div className="rounded-2xl bg-customCactus-100  h-full overflow-hidden flex flex-col p-2 text-customCactus-400">

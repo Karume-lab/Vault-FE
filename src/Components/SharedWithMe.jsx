@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import FilesTable from "./FilesTable";
 
-const SharedWithMe = ({ files, account, contract, active }) => {
+const SharedWithMe = ({ account, contract, active }) => {
+    const [sharedFiles, setSharedFiles] = useState([]);
+
+    useEffect(() => {
+        const getdata = async () => {
+            try {
+                const dataArray = await contract.getFilesSharedWithMe();
+                if (dataArray && dataArray.length > 0) {
+                    setSharedFiles(dataArray);
+                } else {
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        getdata();
+    }, [account, contract, setSharedFiles]);
+
     const columns = [
         {
             id: "owner", header: "Owner", accessorKey: "owner"
@@ -21,7 +38,7 @@ const SharedWithMe = ({ files, account, contract, active }) => {
             <div className="pt-1 pl-2 rounded-r-2xl-2xl rounded-t-2xl ">
                 <p className="ml-2 font-bold text-center text-3xl">SHARED FILES</p>
             </div>
-            <FilesTable files={files} active={active} account={account} contract={contract} columns={columns} />
+            <FilesTable files={sharedFiles} active={active} account={account} contract={contract} columns={columns} />
         </div>
     );
 };

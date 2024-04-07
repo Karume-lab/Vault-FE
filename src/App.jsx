@@ -13,13 +13,9 @@ const App = () => {
   const [contract, setContract] = useState(null);
   const [provider, setProvider] = useState(null);
   const [toggleFileUploadModal, setToggleFileUploadModal] = useState(false);
-  const [toggleShareModal, setToggleShareModal] = useState(false);
   const [files, setFiles] = useState([]);
   const { enqueueSnackbar } = useSnackbar();
   const [active, setActive] = useState(1);
-
-
-
 
   useEffect(() => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -64,13 +60,13 @@ const App = () => {
       <div className="flex flex-col w-screen h-screen bg-customCactus-200">
         <Navbar account={account} />
         {account ?
-          <div className=' flex flex-1 flex-row p-2 gap-2 overflow-auto'>
-            <div className=' w-60  '>
-              <Sidebar provider={provider} files={files} setFiles={setFiles} account={account} contract={contract} toggleFileUploadModal={toggleFileUploadModal} setToggleFileUploadModal={setToggleFileUploadModal} active={active} setActive={setActive} toggleShareModal={toggleShareModal} setToggleShareModal={setToggleShareModal} />
+          <div className='flex flex-1 flex-row p-2 gap-2 overflow-auto'>
+            <div className='w-60'>
+              <Sidebar provider={provider} files={files} setFiles={setFiles} account={account} setAccount={setAccount} contract={contract} toggleFileUploadModal={toggleFileUploadModal} setToggleFileUploadModal={setToggleFileUploadModal} active={active} setActive={setActive} />
             </div>
             <div className='flex-1 relative overflow-auto'>
               <UploadModal toggleFileUploadModal={toggleFileUploadModal} setToggleFileUploadModal={setToggleFileUploadModal} account={account} contract={contract} provider={provider} />
-              <MainContent files={files} setFiles={setFiles} active={active} contrmmact={contract} account={account} />
+              <MainContent files={files} setFiles={setFiles} active={active} contract={contract} account={account} />
             </div>
           </div>
           :

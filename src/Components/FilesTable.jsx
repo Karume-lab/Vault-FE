@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import {
     flexRender,
@@ -9,8 +9,9 @@ import {
     useReactTable,
 } from "@tanstack/react-table";
 import FileActions from "./FileActions"
+import ShareModal from "./ShareModal";
 import { LuChevronFirst, LuChevronLast } from "react-icons/lu";
-import { MdNavigateNext } from "react-icons/md";
+import { MdNavigateNext, MdPeopleAlt } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
 import { IoSearch } from "react-icons/io5";
 import nofile from "../assets/img/empty.png";
@@ -19,10 +20,11 @@ import testFiles from "./dummyFiles.json";
 const FilesTable = ({ files, columns, active, contract }) => {
     // files = testFiles;
     const data = useMemo(() => files, [files]);
-
     const [sorting, setSorting] = useState([]);
     const [filtering, setFiltering] = useState("");
     const [activeFileId, setActiveFileId] = useState(0)
+    const [toggleShareModal, setToggleShareModal] = useState(false);
+
     const table = useReactTable({
         data,
         columns,
@@ -40,7 +42,13 @@ const FilesTable = ({ files, columns, active, contract }) => {
 
     return (
         <div>
-            {(files && files.length) ?
+            {
+                toggleShareModal ?
+                    <ShareModal file={files[activeFileId]} contract={contract} />
+                    :
+                    null
+            }
+            {(files && files?.length) ?
                 <>
                     <div className='flex items-center justify-center p-1 gap-1 flex-grow'>
                         <div className='bg-customCactus-200 flex items-center p-2 rounded-lg focus:ring-22 focus:ring-customCactus-400 text-xl gap-2'>
@@ -91,17 +99,26 @@ const FilesTable = ({ files, columns, active, contract }) => {
                                     className='border-b border-customCactus-400 hover:bg-customCactus-200 h-12 w-full'
                                     onMouseOver={(e) => setActiveFileId(e.currentTarget.id)}
                                 >
-                                    {row.getVisibleCells().map((cell) => (
-                                        <td key={cell.id} className="px-4 py-2">
-                                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                                        </td>
+                                    {row.getVisibleCells().map((cell, index) => (
+                                        <React.Fragment key={cell.id}>
+                                            {index === 0 && (
+                                                <td className="px-4 py-2 flex items-center gap-2">
+                                                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                                    {files[row.id].isShared ? <MdPeopleAlt title='This file is shared' /> : null}
+                                                </td>
+                                            )}
+                                            {index !== 0 && (
+                                                <td key={cell.id} className="px-4 py-2">
+                                                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                                </td>
+                                            )}
+                                        </React.Fragment>
                                     ))}
-                                    {active === 2 ? "" :
-                                        <FileActions file={files[activeFileId]} contract={contract} />}
+                                    {active === 2 ? null :
+                                        <FileActions file={files[activeFileId]} contract={contract} setToggleShareModal={setToggleShareModal} />}
                                 </tr>
                             ))}
                         </tbody>
-
 
                     </table>
                     <div className='flex justify-center gap-2 mt-2'>
@@ -138,5 +155,3 @@ const FilesTable = ({ files, columns, active, contract }) => {
 }
 
 export default FilesTable
-
-
