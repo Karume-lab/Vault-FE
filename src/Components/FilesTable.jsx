@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import {
     flexRender,
@@ -11,7 +11,7 @@ import {
 import FileActions from "./FileActions"
 import ShareModal from "./ShareModal";
 import { LuChevronFirst, LuChevronLast } from "react-icons/lu";
-import { MdNavigateNext } from "react-icons/md";
+import { MdNavigateNext, MdPeopleAlt } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
 import { IoSearch } from "react-icons/io5";
 import nofile from "../assets/img/empty.png";
@@ -99,17 +99,26 @@ const FilesTable = ({ files, columns, active, contract }) => {
                                     className='border-b border-customCactus-400 hover:bg-customCactus-200 h-12 w-full'
                                     onMouseOver={(e) => setActiveFileId(e.currentTarget.id)}
                                 >
-                                    {row.getVisibleCells().map((cell) => (
-                                        <td key={cell.id} className="px-4 py-2">
-                                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                                        </td>
+                                    {row.getVisibleCells().map((cell, index) => (
+                                        <React.Fragment key={cell.id}>
+                                            {index === 0 && (
+                                                <td className="px-4 py-2 flex items-center gap-2">
+                                                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                                    {files[row.id].isShared ? <MdPeopleAlt title='This file is shared' /> : null}
+                                                </td>
+                                            )}
+                                            {index !== 0 && (
+                                                <td key={cell.id} className="px-4 py-2">
+                                                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                                </td>
+                                            )}
+                                        </React.Fragment>
                                     ))}
-                                    {active === 2 ? "" :
+                                    {active === 2 ? null :
                                         <FileActions file={files[activeFileId]} contract={contract} setToggleShareModal={setToggleShareModal} />}
                                 </tr>
                             ))}
                         </tbody>
-
 
                     </table>
                     <div className='flex justify-center gap-2 mt-2'>
@@ -146,5 +155,3 @@ const FilesTable = ({ files, columns, active, contract }) => {
 }
 
 export default FilesTable
-
-
