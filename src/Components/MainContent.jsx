@@ -34,7 +34,7 @@ const MainContent = ({ active, account, contract, files, setFiles }) => {
 
     const components = {
         1: <MyVault files={files} active={active} account={account} contract={contract} />,
-        2: <SharedWithMe files={files} active={active} account={account} contract={contract} />,
+        2: <SharedWithMe active={active} account={account} contract={contract} />,
         3: <Recents files={files} active={active} account={account} contract={contract} />,
         4: <Favorites files={files} active={active} account={account} contract={contract} />,
         5: <Tags files={files} active={active} account={account} contract={contract} />,
