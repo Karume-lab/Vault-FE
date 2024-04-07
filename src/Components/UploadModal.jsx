@@ -3,6 +3,7 @@ import { useSnackbar } from "notistack";
 import TagsDropdown from "./TagsDropdown";
 import axios from "axios";
 import { TERipple } from "tw-elements-react";
+import { IoIosClose } from "react-icons/io";
 
 
 const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract, account }) => {
@@ -91,7 +92,7 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
                         <div className="flex flex-row align-middle ">
                             <p className=" text-lg font-semibold">Select File to Upload</p>
                         </div>
-                        <button onClick={() => setToggleFileUploadModal(!toggleFileUploadModal)} >X</button>
+                        <button onClick={() => setToggleFileUploadModal(!toggleFileUploadModal)} className="text-2xl" ><IoIosClose /></button>
                     </div>
                     <div className="p-2 flex flex-col gap-2">
                         <input
