@@ -50,9 +50,9 @@ const FilesTable = ({ files, columns, active, contract }) => {
                     :
                     null
             }
+            <EditModal file={files[activeFileId]} toggleEditModal={toggleEditModal} setToggleEditModal={setToggleEditModal} contract={contract} />
             {(files && files?.length) ?
                 <>
-                <EditModal toggleEditModal={toggleEditModal} setToggleEditModal={setToggleEditModal}  />
                     <div className='flex items-center justify-center p-1 gap-1 flex-grow'>
                         <div className='bg-customCactus-200 flex items-center p-2 rounded-lg focus:ring-22 focus:ring-customCactus-400 text-xl gap-2'>
                             <IoSearch />
@@ -100,7 +100,7 @@ const FilesTable = ({ files, columns, active, contract }) => {
                                     key={row.id}
                                     id={`${row.id}`}
                                     className='border-b border-customCactus-400 hover:bg-customCactus-200 h-12 w-full'
-                                    onclick={(e) => setActiveFileId(e.currentTarget.id)}
+                                    onClick={(e) => setActiveFileId(e.currentTarget.id)}
                                 >
                                     {row.getVisibleCells().map((cell, index) => (
                                         <React.Fragment key={cell.id}>
