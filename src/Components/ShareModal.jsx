@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import testAccessors from "./MOCK_ACCESSORS.json";
 
 const ShareModal = ({ file, contract }) => {
     const [receiver, setReceiver] = useState('');
@@ -21,7 +22,9 @@ const ShareModal = ({ file, contract }) => {
         getAccessors();
     }, [contract, file?.cid]);
 
-
+    useEffect(() => {
+        setAccessors(testAccessors);
+    }, []); // This useEffect will run only once on component mount
 
     return (
         <div className='bg-customCactus-100 rounded-lg p-2 flex flex-col gap-3 border-2 border-customCactus-400'>

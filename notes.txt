@@ -131,3 +131,10 @@ make background dimmer as oppossed to blurring
 
 
 "one", "example_document", "This is an example PDF document", true, 1024, ".pdf", 1
+
+
+# NOW
+edit modal
+make share a modal
+closing share modal
+confirm delete modal

@@ -18,7 +18,7 @@ import nofile from "../assets/img/empty.png";
 import testFiles from "./MOCK_FILES.json";
 
 const FilesTable = ({ files, columns, active, contract }) => {
-    // files = testFiles;
+    files = testFiles;
     const data = useMemo(() => files, [files]);
     const [sorting, setSorting] = useState([]);
     const [filtering, setFiltering] = useState("");
@@ -97,7 +97,7 @@ const FilesTable = ({ files, columns, active, contract }) => {
                                     key={row.id}
                                     id={`${row.id}`}
                                     className='border-b border-customCactus-400 hover:bg-customCactus-200 h-12 w-full'
-                                    onMouseOver={(e) => setActiveFileId(e.currentTarget.id)}
+                                    onClick={(e) => setActiveFileId(e.currentTarget.id)}
                                 >
                                     {row.getVisibleCells().map((cell, index) => (
                                         <React.Fragment key={cell.id}>
