@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import testAccessors from "./MOCK_ACCESSORS.json";
+import testAccessors from "../MOCK_DATA/MOCK_ACCESSORS.json";
 
 const ShareModal = ({ file, contract }) => {
     const [receiver, setReceiver] = useState('');
@@ -23,7 +23,7 @@ const ShareModal = ({ file, contract }) => {
     }, [contract, file?.cid]);
 
     useEffect(() => {
-        setAccessors(testAccessors);
+        // setAccessors(testAccessors);
     }, []); // This useEffect will run only once on component mount
 
     return (

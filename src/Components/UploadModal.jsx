@@ -12,7 +12,7 @@ const UploadModal = ({ toggleFileUploadModal, setToggleFileUploadModal, contract
     const [tag, setTag] = useState(0);
     const [fileSize, setFileSize] = useState(0);
     const [fileDescription, setFileDescription] = useState("")
-    const [isFavourite, setIsFavourite] = useState(0)
+    const [isFavourite, setIsFavourite] = useState(false)
     const { enqueueSnackbar } = useSnackbar();
 
     const handleSubmit = async (e) => {
