@@ -5,6 +5,7 @@ import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { MdOutlineFileDownload } from "react-icons/md";
 import fileDownload from 'js-file-download';
+import { FaRegTrashAlt } from "react-icons/fa";
 import axios from "axios";
 
 
@@ -54,6 +55,7 @@ const FileActions = ({ file, contract, setToggleShareModal, toggleShareModal,set
                     </div>
                     <div title="Share" className="p-1 rounded-full hover:bg-customCactus-100" onClick={handleShareClick}><IoShareSocialOutline /></div>
                     <div title="Download" className="p-1 rounded-full hover:bg-customCactus-100" onClick={() => handleDownload()}><MdOutlineFileDownload /> </div>
+                    <div title="Delete" className="p-1 rounded-full hover:bg-customCactus-100 text-sm" ><FaRegTrashAlt  /> </div>
                 </div>
             )}
         </td>
