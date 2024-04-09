@@ -27,9 +27,8 @@ const Storage = ({ files, account, contract, active, percentageUsed }) => {
         </div>
             <p className='font-semibold tetx-lg sticky'>Files using storage</p>
         <div className='overflow-auto'>
-            <FilesTable files={files} active={active} account={account} contract={contract} columns={columns} />
+            <FilesTable files={files?.filter(file => !file?.isArchived )} active={active} account={account} contract={contract} columns={columns} />
         </div>
-
     </div>
     );
 } 

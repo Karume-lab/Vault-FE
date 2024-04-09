@@ -181,7 +181,7 @@
         "dateUploaded": 1647842000000,
         "description": "Research paper on market trends",
         "extension": "png",
-        "isArchived": false,
+        "isArchived": true,
         "isFavourite": true,
         "name": "Market Trends Research",
         "owner": "0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199",

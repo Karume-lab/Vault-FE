@@ -20,7 +20,7 @@ const MyVault = ({ files, account, contract, active }) => {
                 <p className="ml-2 font-bold text-center text-2xl">MY VAULT</p>
             </div>
             <div className="border-t border-1 w-full self-center border-customCactus-400"></div>
-            <FilesTable files={files} active={active} account={account} contract={contract} columns={columns} />
+            <FilesTable files={files?.filter(file => !file?.isArchived )} active={active} account={account} contract={contract} columns={columns} />
         </div>
     );
 };
