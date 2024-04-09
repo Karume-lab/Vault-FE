@@ -1,28 +1,37 @@
-import React from 'react'
+import React from 'react';
+import FilesTable from './FilesTable';
 
-const Storage = () => {
+
+const Storage = ({ files, account, contract, active, percentageUsed }) => {
+    const columns = [
+        { id: "name", header: "File", accessorKey: "name" },
+        { id: "size", header: "Size", accessorKey: "size" },
+    ];
+    
+        const progressBarWidth = `${percentageUsed}%`;
+
+
     return (
-        <div>
-            Storage
-
-                {/* <button data-popover-target="popover-description" type="button" className="text-white bg-blue-700 hover:bg-blue-800 inline-flex items-center focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2.5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"><svg className="w-4 h-4 me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3 12v3c0 1.657 3.134 3 7 3s7-1.343 7-3v-3c0 1.657-3.134 3-7 3s-7-1.343-7-3z"></path><path d="M3 7v3c0 1.657 3.134 3 7 3s7-1.343 7-3V7c0 1.657-3.134 3-7 3S3 8.657 3 7z"></path><path d="M17 5c0 1.657-3.134 3-7 3S3 6.657 3 5s3.134-3 7-3 7 1.343 7 3z"></path></svg> Storage status</button>
-
-                <div data-popover id="popover-description" role="tooltip" className="absolute z-10 invisible inline-block text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 w-72 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400">
-                    <div className="p-3 space-y-2">
-                        <h3 className="font-semibold text-gray-900 dark:text-white">Available storage</h3>
-                        <p>This server has <span className="font-semibold text-gray-900 dark:text-white">30</span> of <span className="font-semibold text-gray-900 dark:text-white">150 GB</span> of block storage remaining.</p>
-                        <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4 dark:bg-gray-700">
-                            <div className="bg-red-600 h-2.5 rounded-full" style="width: 85%"></div>
-                        </div>
-                        <a href="#" className="flex items-center font-medium text-blue-600 dark:text-blue-500 dark:hover:text-blue-600 hover:text-blue-700">Upgrade now <svg className="w-2 h-2 ms-1.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                </svg></a>
-                    </div>
-                    <div data-popper-arrow></div>
-                </div> */}
-
+        <div className="rounded-2xl bg-customCactus-100 w-full h-full  flex flex-col p-2 text-customCactus-400">
+        <div className="pt-1 pl-2 rounded-r-2xl-2xl rounded-t-2xl ">
+            <p className="ml-2 font-bold text-center text-2xl">STORAGE</p>
         </div>
-    )
-}
+        <div className="border-t border-1 w-11/12 self-center border-customCactus-400"></div>
+        <div className="w-full h-3 my-5 bg-customCactus-200 justify-start flex flex-col rounded-full">
+            {/* Apply dynamic width */}
+            <div className="bg-customCactus-400 text-xs text-customCactus-100 text-center h-full p-0.5 leading-none rounded-full" style={{ width: progressBarWidth }}>{percentageUsed}%</div>
+            <p className=''> <span className='text-2xl font-bold'>2.1GB</span>  out of 15GB used</p>
+        </div>
+        <div className='my-5 flex justify-center'>
+            <button className='bg-customCactus-200 p-3 font-semibold rounded-full shadow-customCactus-400 shadow-md hover:bg-customCactus-300 hover:text-white'>Get more Storage</button>
+        </div>
+        <div className='overflow-auto'>
+            <p className='font-semibold tetx-lg'>Files using storage</p>
+            <FilesTable files={files} active={active} account={account} contract={contract} columns={columns} />
+        </div>
 
-export default Storage
+    </div>
+    );
+} 
+
+export default Storage;
