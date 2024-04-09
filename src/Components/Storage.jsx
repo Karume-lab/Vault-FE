@@ -25,8 +25,8 @@ const Storage = ({ files, account, contract, active, percentageUsed }) => {
         <div className='my-5 flex justify-center'>
             <button className='bg-customCactus-200 p-3 font-semibold rounded-full shadow-customCactus-400 shadow-md hover:bg-customCactus-300 hover:text-white'>Get more Storage</button>
         </div>
+            <p className='font-semibold tetx-lg sticky'>Files using storage</p>
         <div className='overflow-auto'>
-            <p className='font-semibold tetx-lg'>Files using storage</p>
             <FilesTable files={files} active={active} account={account} contract={contract} columns={columns} />
         </div>
 
